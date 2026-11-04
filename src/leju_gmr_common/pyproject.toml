@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leju-gmr-common"
+version = "0.1.0"
+description = "Device-independent S17 GMR and DDS HEFT support"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.8",
+    "mujoco==3.11.0",
+    "mink==1.2.0",
+    "qpsolvers[daqp]>=4.0",
+    "cyclonedds==0.10.2"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["leju_gmr_common*"]

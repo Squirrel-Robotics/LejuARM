@@ -1,0 +1,30 @@
+# 头部轨迹测试，只由 head_traj_tracking_test 读取。
+# 头部 2 个可动关节，顺序为 zhead_1_joint yaw、zhead_2_joint pitch，单位 deg。
+# 移动到指定绝对目标，保持，然后回到启动位姿。
+# 程序校验 URDF 硬限位：
+# yaw [-90, 90] deg；pitch [-20, 45] deg。
+target_deg: [40, 25]
+# 若需相对步进，删除 target_deg，改为 delta_deg: [40, 25]（单次最多60 deg）。
+# pitch 正值低头；目标是25度，不是在当前俯仰角上再增加25度。
+
+# 使用实际控制器配置检查测试前提，不修改该配置。
+controller_manager_config: src/leju-controllers/leju-rl-controller/config/17/controller_manager.yaml
+
+# 平滑移动时间，秒；程序还会检查整段轨迹的峰值速度。
+move_sec: 5.0
+# 当前位姿到目标需要更长时间时，程序自动延长以满足15 deg/s限速。
+# 到达目标后的保持时间，毫秒。
+hold_ms: 2000
+# 保持段开头不计入误差统计的时间，毫秒。
+skip_ms: 700
+# 移动前保持启动位姿的时间，毫秒。
+settle_ms: 1000
+# 轨迹发布频率，Hz。
+rate_hz: 100
+# 峰值指令速度上限，deg/s。
+max_velocity_deg_s: 15
+# 反馈超时和跟踪误差阈值；超过阈值时停止测试并退出。
+feedback_timeout_ms: 500
+max_tracking_error_deg: 15
+# 保持段目标验收及回程容差；非零步进还取 min(此值, |步进|/2)，防止未运动误报成功。
+target_tolerance_deg: 2

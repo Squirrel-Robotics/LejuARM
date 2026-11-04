@@ -1,0 +1,120 @@
+# ============================================
+# 全身磨线配置 (Roban v17 / biped_s17) — 腿+腰+臂+头
+#
+# 总线/电机 id/kp-kd 不在本文件硬编码, 而是运行时从部署配置读取:
+#   device_config: ~/.config/lejuconfig/canbus_device_cofig.yaml
+# 程序按设备名 Lleg_joint_/Rleg_joint_/Waist_ 解析各总线的电机 id 与 kp/kd(params),
+# 自动得到关节顺序并按关节序配对左右腿镜像。本文件只定义【动作关键帧 + 安全限位】。
+#
+# 真机实测拓扑 (供参考, 以 device_config 为准):
+#   bcan0: 腰=id1 + 左腿 Lleg01-06=id2-07 (CANFD 广播)
+#   bcan1: 右腿 Rleg01-06=id1-06          (CANFD 广播)
+#   bcan2: 左臂 id1-4 + 头(0x09,0x0A)      (CAN 单帧)
+#   bcan3: 右臂 id5-8                      (CAN 单帧)
+#
+# 关节顺序 (biped_s17/.../biped_v3.urdf 关节轴):
+#   关节1 leg_l1 hip_pitch(斜轴) | 2 leg_l2 hip_roll | 3 leg_l3 hip_yaw
+#   关节4 leg_l4 knee(单向,非负)  | 5 leg_l5 ankle_pitch | 6 leg_l6 ankle_roll | 腰=yaw
+#
+# ⚠️ 上板前现场核对: 镜像取反方向(默认两腿同向); 关键帧为保守扫幅(安全起点)。
+# ============================================
+
+# 部署设备配置路径 (支持 ~ / $HOME 展开). 也可用 --device-config 覆盖。
+device_config: "~/.config/lejuconfig/canbus_device_cofig.yaml"
+
+# ==================== 控制参数 ====================
+control:
+  frequency_hz: 500
+  default_kp: 150          # 仅当 device_config 缺某关节增益时的兜底
+  default_kd: 2.0
+
+# ==================== 动作配置 ====================
+action:
+  frame_duration_sec: 1.0    # 11 帧 -> 11 秒/轮
+
+  # 左腿关键帧 (度, 行序 = 关节1..6 = Lleg_joint_01..06)
+  # 逐关节往返扫幅, 落在 v17 限位内, 第 10 帧回零
+  # v17 关节序; 
+  # 峰值量级保留 v14: hip_pitch130 / hip_roll±(80,-120) / hip_yaw30 / knee140(非负) / ankle20
+  left_leg_keyframes:
+    #  帧0  帧1  帧2  帧3   帧4   帧5   帧6   帧7   帧8   帧9  帧10
+    - [0,   30,  90,   0, -120,   20,    0,    0,    0,     0,  0 ]  # 关节1 hip_pitch
+    - [0,   20,  60,  90,    0,   50,    0,    0,    0,     0,  0 ]  # 关节2 hip_roll
+    - [0,   15,  -15,  0,    0,  -25,    0,    0,    0,     0,  0 ]  # 关节3 hip_yaw
+    - [0,   20,  100, 70,    0,  120,    0,    0,    0,     0,  0 ]  # 关节4 knee  (非负)
+    - [0,   20,   0, -20,   20,  -20,    0,    0,    0,     0,  0 ]  # 关节5 ankle_pitch
+    - [0,   20,   0, -20,   20,  -20,    0,    0,    0,     0,  0 ]  # 关节6 ankle_roll
+
+  # 右腿镜像: device_config 模式下 from 自动按关节序配对(右[j]<-左[j]),
+  # 此处只取 negate. 键 = 右腿电机 id (真机 1..6). 默认两腿同向, 吊起时安全。
+  right_leg_mirror:
+    1: { negate: true }   # hip_pitch
+    2: { negate: true }   # hip_roll
+    3: { negate: true }   # hip_yaw
+    4: { negate: false }   # knee
+    5: { negate: false }   # ankle_pitch
+    6: { negate: false }   # ankle_roll
+
+  # 腰部关键帧 (度): 
+  waist_keyframes:
+    #  帧0  帧1  帧2  帧3  帧4  帧5  帧6   帧7   帧8   帧9  帧10
+    - [0,   0,    0,   0,   0,   0,  0,    100,   0,  -100,  0]  # waist_yaw (±150)
+
+# ==================== 上肢配置 (bcan2/bcan3, CAN 单帧) ====================
+# MotorevoActuator 按总线 protocol 分发, bcan2/bcan3 走单帧驱动臂/头。
+# arm.canbus_config 只能含 bcan2/bcan3 (否则与腿控制器抢 bcan0/1)。
+# 用 run_breakin.py 时, wrapper 会从 device_config 自动抽取 bcan2/3 子集并经
+# --arm-config 传入; 直接调用时用下面这份只含 bcan2/3 的配置。
+arm:
+  canbus_config: "src/leju-hardware/config/arm_test_canbus_cofig.yaml"
+  frequency_hz: 250
+  frame_duration_ms: 1570    # 7 帧 -> 10.99 秒/轮
+
+  # 左臂关键帧 [帧][4关节] 弧度, 落在 v17 臂限位内:
+  #   臂1 [-180,120] 臂2 [-180,180] 臂3 [-90,90] 臂4(肘) [-130,10] 单向(非正)
+  left_arm_keyframes:
+    - [ 0.0,  0.0,  0.0,  0.0]    # 帧0 零位
+    - [-1.0,  1.0,  1.0, -1.5]    # 帧1
+    - [-1.4,  1.8, 1.35, -0.8]    # 帧2
+    - [ 0.0,  2.5,  0.5, -1.6]    # 帧3
+    - [ 0.6,  1.5,-1.35, -2.0]    # 帧4
+    - [ 1.4,  0.5, -1.0, -1.0]    # 帧5
+    - [ 0.0,  0.0,  0.0,  0.0]    # 帧6 回零
+
+  right_arm_mirror:
+    0: { from: 0, negate: false }   # Rarm_01 (CANid5) pitch
+    1: { from: 1, negate: true  }   # Rarm_02 (CANid6) roll  ← 镜像取反
+    2: { from: 2, negate: true }   # Rarm_03 (CANid7) yaw
+    3: { from: 3, negate: false }   # Rarm_04 (CANid8) elbow
+
+  head_keyframes:
+    - [ 0.0,  0.0]    # 帧0
+    - [ 0.6,  0.4]    # 帧1
+    - [-0.6,  0.0]    # 帧2
+    - [ 0.0,  0.4]    # 帧3
+    - [ 0.6, -0.3]    # 帧4
+    - [-0.6,  0.0]    # 帧5
+    - [ 0.0,  0.0]    # 帧6
+
+  # 臂/头 kp/kd: 用 device_config 时按电机逐个读(臂 14.25/0.907, 头Y 10/1, 头P 5/1);
+  # 下面仅为未用 device_config 时的回退值
+  arm_kp: 14.25
+  arm_kd: 0.907
+  head_kp: 10.0
+  head_kd: 1.0
+
+# ==================== 安全限位 ====================
+# max_offset_deg 按【关节位置 1..6】+ 腰(7) 设定, 左右同关节共用; 落在 v17 限位内
+safety:
+  max_offset_deg:
+    1: 130   # hip_pitch    (峰值90,  v17 ±190)
+    2: 130   # hip_roll     (峰值120, v17 ±180)
+    3: 60    # hip_yaw      (峰值30,  v17 ±180)
+    4: 150   # knee         (峰值140, v17 [-10,180] 非负)
+    5: 40    # ankle_pitch  (峰值20,  v17 ±90)
+    6: 40    # ankle_roll   (峰值20,  v17 ±95)
+    7: 110    # waist        (v17 ±150)
+  arm_max_offset_rad: 1.0    # 臂关键帧峰值 0.8; 注意肘 [-130,10] 单向
+  head_max_offset_rad: 1.0
+  stale_threshold: 50
+  max_temperature: 80

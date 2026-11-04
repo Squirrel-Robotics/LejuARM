@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leju-pico-gmr"
+version = "0.1.0"
+description = "Pico body tracking and independent joystick frontend"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "leju-gmr-common==0.1.0",
+    "protobuf>=3.20,<5",
+    "netifaces>=0.11"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+leju-pico-gmr = "leju_pico_gmr.main:main"
+leju-pico-joy = "leju_pico_gmr.joy_main:main"
+
+[tool.setuptools.packages.find]
+include = ["leju_pico_gmr*"]
+
+[tool.setuptools.package-data]
+leju_pico_gmr = ["ik_configs/*.json", "protos/*.proto"]

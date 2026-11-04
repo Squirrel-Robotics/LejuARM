@@ -1,0 +1,269 @@
+{
+    "robot_root_name": "base_link",
+    "human_root_name": "Hips",
+    "ground_height": -0.0,
+    "human_height_assumption": 1.75,
+    "offset_convention": "robot_hierarchy_v1",
+    "root_position_offset": null,
+    "use_ik_match_table1": true,
+    "use_ik_match_table2": false,
+
+    "_comment": [
+        "Roban S22 whole-body BVH retargeting.",
+        "Orientations use one calibration offset per mapped body.",
+        "Positions are synthesized from the parent target orientation and Roban link geometry.",
+        "The rigid hand and forefoot markers use position only because Roban has no wrist or toe joint."
+    ],
+
+    "human_scale_table": {
+        "Hips": 1.0,
+        "Spine": 1.0,
+
+        "LeftShoulder": 1.0,
+        "RightShoulder": 1.0,
+
+        "LeftUpLeg": 1.0,
+        "RightUpLeg": 1.0,
+        "LeftLeg": 1.0,
+        "RightLeg": 1.0,
+        "LeftFoot": 1.0,
+        "RightFoot": 1.0,
+
+        "LeftToeBase": 1.0,
+        "RightToeBase": 1.0,
+
+        "LeftArm": 1.0,
+        "RightArm": 1.0,
+        "LeftForeArm": 1.0,
+        "RightForeArm": 1.0,
+        "LeftHand": 1.0,
+        "RightHand": 1.0,
+
+        "Neck": 1.0,
+        "Head": 1.0
+    },
+
+    "position_hierarchy": {
+        "Spine": {
+            "human_parent": "Hips",
+            "robot_parent": "base_link",
+            "robot_body": "torso"
+        },
+        "Neck": {
+            "human_parent": "Spine",
+            "robot_parent": "torso",
+            "robot_body": "zhead_1_link"
+        },
+        "Head": {
+            "human_parent": "Neck",
+            "robot_parent": "zhead_1_link",
+            "robot_body": "zhead_2_link"
+        },
+        "LeftArm": {
+            "human_parent": "Spine",
+            "robot_parent": "torso",
+            "robot_body": "zarm_l3_link"
+        },
+        "LeftForeArm": {
+            "human_parent": "LeftArm",
+            "robot_parent": "zarm_l3_link",
+            "robot_body": "zarm_l4_link"
+        },
+        "LeftHand": {
+            "human_parent": "LeftForeArm",
+            "robot_parent": "zarm_l4_link",
+            "robot_body": "zarm_l4_link_front"
+        },
+        "RightArm": {
+            "human_parent": "Spine",
+            "robot_parent": "torso",
+            "robot_body": "zarm_r3_link"
+        },
+        "RightForeArm": {
+            "human_parent": "RightArm",
+            "robot_parent": "zarm_r3_link",
+            "robot_body": "zarm_r4_link"
+        },
+        "RightHand": {
+            "human_parent": "RightForeArm",
+            "robot_parent": "zarm_r4_link",
+            "robot_body": "zarm_r4_link_front"
+        },
+        "LeftUpLeg": {
+            "human_parent": "Hips",
+            "robot_parent": "base_link",
+            "robot_body": "leg_l3_link"
+        },
+        "LeftLeg": {
+            "human_parent": "LeftUpLeg",
+            "robot_parent": "leg_l3_link",
+            "robot_body": "leg_l4_link"
+        },
+        "LeftFoot": {
+            "human_parent": "LeftLeg",
+            "robot_parent": "leg_l4_link",
+            "robot_body": "leg_l6_link"
+        },
+        "LeftToeBase": {
+            "human_parent": "LeftFoot",
+            "robot_parent": "leg_l6_link",
+            "robot_body": "leg_l6_link_front"
+        },
+        "RightUpLeg": {
+            "human_parent": "Hips",
+            "robot_parent": "base_link",
+            "robot_body": "leg_r3_link"
+        },
+        "RightLeg": {
+            "human_parent": "RightUpLeg",
+            "robot_parent": "leg_r3_link",
+            "robot_body": "leg_r4_link"
+        },
+        "RightFoot": {
+            "human_parent": "RightLeg",
+            "robot_parent": "leg_r4_link",
+            "robot_body": "leg_r6_link"
+        },
+        "RightToeBase": {
+            "human_parent": "RightFoot",
+            "robot_parent": "leg_r6_link",
+            "robot_body": "leg_r6_link_front"
+        }
+    },
+
+    "ik_match_table1": {
+        "base_link": [
+            "Hips",
+            80,
+            50,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+
+        "torso": [
+            "Spine",
+            0,
+            30,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+
+
+        "leg_l3_link": [
+            "LeftUpLeg",
+            15,
+            2,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "leg_l4_link": [
+            "LeftLeg",
+            25,
+            8,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "leg_l6_link": [
+            "LeftFoot",
+            30,
+            8,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "leg_l6_link_front": [
+            "LeftToeBase",
+            30,
+            0,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "leg_r3_link": [
+            "RightUpLeg",
+            15,
+            2,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "leg_r4_link": [
+            "RightLeg",
+            25,
+            8,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "leg_r6_link": [
+            "RightFoot",
+            30,
+            8,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "leg_r6_link_front": [
+            "RightToeBase",
+            30,
+            0,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+
+        "zarm_l3_link": [
+            "LeftArm",
+            0,
+            15,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "zarm_l4_link": [
+            "LeftForeArm",
+            30,
+            15,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "zarm_l4_link_front": [
+            "LeftHand",
+            45,
+            0,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "zarm_r3_link": [
+            "RightArm",
+            0,
+            15,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "zarm_r4_link": [
+            "RightForeArm",
+            30,
+            15,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "zarm_r4_link_front": [
+            "RightHand",
+            45,
+            0,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+
+        "zhead_1_link": [
+            "Neck",
+            0,
+            2,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ],
+        "zhead_2_link": [
+            "Head",
+            0,
+            2,
+            [0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0]
+        ]
+    },
+
+    "ik_match_table2": {}
+}

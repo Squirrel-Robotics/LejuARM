@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leju-xsens-gmr"
+version = "0.1.0"
+description = "Independent Xsens MVN and BVH frontend for S17"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "leju-gmr-common==0.1.0"
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+leju-xsens-gmr = "leju_xsens_gmr.main:main"
+
+[tool.setuptools.packages.find]
+include = ["leju_xsens_gmr*"]
+
+[tool.setuptools.package-data]
+leju_xsens_gmr = ["ik_configs/*.json"]

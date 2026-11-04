@@ -1,0 +1,19 @@
+[Unit]
+Description=Receive Roban VR raw data and crop/align on workstation
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=/media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data
+ExecStart=/usr/bin/python3 /media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data/.pipeline/scripts/vr_workstation_receiver.py
+Environment=PATH=/home/yulinxie/.local/bin:/usr/bin:/bin
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=1900
+KillMode=mixed
+
+[Install]
+WantedBy=default.target

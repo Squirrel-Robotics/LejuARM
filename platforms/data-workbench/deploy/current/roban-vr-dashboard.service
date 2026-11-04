@@ -1,0 +1,18 @@
+[Unit]
+Description=Roban2 LAN data collection and processing dashboard
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=/media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data/.pipeline/dashboard
+ExecStart=/usr/bin/python3 /media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data/.pipeline/dashboard/vr_dashboard.py --port 8877 --bind 0.0.0.0 --allow-host 192.168.110.88
+Environment=PATH=/home/yulinxie/.local/bin:/usr/bin:/bin
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Restart=on-failure
+RestartSec=4
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target

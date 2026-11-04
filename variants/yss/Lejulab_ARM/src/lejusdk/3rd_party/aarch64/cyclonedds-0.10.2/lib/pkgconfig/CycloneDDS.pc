@@ -1,0 +1,9 @@
+prefix=/home/test/zx/verify-sync-dev/src/lejusdk/3rd_party/aarch64/cyclonedds-0.10.2
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: CycloneDDS
+Description: Eclipse Cyclone DDS library
+Version: 0.10.2
+Libs: -L${libdir} -lddsc
+Cflags: -I${includedir}

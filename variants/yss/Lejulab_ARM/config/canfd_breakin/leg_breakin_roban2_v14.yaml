@@ -1,0 +1,164 @@
+# ============================================
+# 全身磨线配置 (Roban v14)
+#
+# 总线分配:
+#   bcan0: 左腿 joint 1-6 (CANFD 广播)
+#   bcan1: 右腿 joint 1-6 + 腰 joint 7 (CANFD 广播)
+#   bcan2: 左臂 joint 1-4 + 头 joint 9-10 (CAN 单帧)
+#   bcan3: 右臂 joint 5-8 (CAN 单帧)
+#
+# 电机参数 (MIT 模式):
+#   kp: 位置刚度   kd: 位置阻尼
+#   腿关节 1-4 (大关节): kp=150, kd=2
+#   腿关节 5-6 (脚踝):   kp=80,  kd=1.5
+#   腰 (joint 7):         kp=150, kd=2
+#   手臂:                  kp=20~25, kd=1~1.5
+#   头部:                  kp=10~20, kd=1
+# ============================================
+
+# ==================== CAN 总线配置 ====================
+canbus:
+  # 左腿总线
+  left_leg:
+    interface: "bcan0"
+    motor_count: 6         # 电机数量
+    motor_ids: [1, 2, 3, 4, 5, 6]
+  # 右腿 + 腰总线
+  right_leg:
+    interface: "bcan1"
+    motor_count: 7         # 6 右腿 + 1 腰
+    motor_ids: [1, 2, 3, 4, 5, 6, 7]
+
+# ==================== 控制参数 ====================
+control:
+  frequency_hz: 500        # 腿部控制频率 (Hz)
+  default_kp: 150          # 默认位置刚度
+  default_kd: 2.0          # 默认位置阻尼
+  # 每个关节的 kp/kd (覆盖默认值)
+  joint_gains:
+    # 左/右腿 joint 1-4 (大关节, 高刚度)
+    1: { kp: 150, kd: 2.0 }
+    2: { kp: 150, kd: 2.0 }
+    3: { kp: 150, kd: 2.0 }
+    4: { kp: 150, kd: 2.0 }
+    # 左/右腿 joint 5-6 (脚踝, 低刚度)
+    5: { kp: 80,  kd: 1.5 }
+    6: { kp: 80,  kd: 1.5 }
+    # 腰 joint 7 (仅 bcan1)
+    7: { kp: 150, kd: 2.0 }
+
+# ==================== 动作配置 ====================
+action:
+  # 每个关键帧的过渡时间 (秒)
+  frame_duration_sec: 1.0
+
+  # 左腿动作关键帧 (单位: 度, 相对于零点的偏移)
+  # 每行对应一个关节 (joint 1-6), 每列是一个关键帧
+  # 总共 11 个关键帧, 一个周期 = 11 秒
+  #
+  # 关节定义:
+  #   joint 1: 髋关节横滚 (hip_roll)
+  #   joint 2: 髋关节俯仰 (hip_pitch)
+  #   joint 3: 膝关节      (knee)
+  #   joint 4: 膝关节2     (knee2)
+  #   joint 5: 踝关节俯仰  (ankle_pitch)
+  #   joint 6: 踝关节横滚  (ankle_roll)
+  left_leg_keyframes:
+    #  帧0   帧1    帧2   帧3    帧4    帧5   帧6   帧7   帧8   帧9   帧10
+    - [0,    30,    90,   0,     -120,  20,   0,    0,    0,    0,    0   ]  # joint 1 hip_roll
+    - [0,    20,    60,   90,    0,     50,   0,    0,    0,    0,    0   ]  # joint 2 hip_pitch
+    - [0,    15,    -15,  0,     0,     -25,  0,    0,    0,    0,    0   ]  # joint 3 knee
+    - [0,    20,    100,  70,    0,     140,  0,    0,    0,    0,    0   ]  # joint 4 knee2
+    - [0,    -20,   0,    -20,   20,    -20,  0,    0,    0,    0,    0   ]  # joint 5 ankle_pitch
+    - [0,    20,    0,    -20,   20,    -20,  0,    0,    0,    0,    0   ]  # joint 6 ankle_roll
+
+  # 右腿映射规则 (从左腿关键帧映射)
+  # 格式: right_joint_id: { from: left_joint_id, negate: true/false }
+  #   negate=true 表示取反 (对称关节)
+  right_leg_mirror:
+    1: { from: 1, negate: true  }   # 右髋滚 = -左髋滚
+    2: { from: 2, negate: true  }   # 右髋俯仰 = -左髋俯仰
+    3: { from: 3, negate: true  }   # 右膝 = -左膝
+    4: { from: 4, negate: false }   # 右膝2 = 左膝2 (同向)
+    5: { from: 5, negate: false }   # 右踝俯仰 = 左踝俯仰 (同向)
+    6: { from: 6, negate: false }   # 右踝滚 = 左踝滚 (同向)
+
+  # 腰部关键帧 (bcan1 上的 joint 7, 单位: 度)
+  waist_keyframes:
+    #  帧0  帧1  帧2  帧3  帧4  帧5  帧6  帧7    帧8  帧9    帧10
+    - [0,   0,   0,   0,   0,   0,   0,   100,   0,   -100,  0]  # waist yaw
+
+# ==================== 上肢配置 ====================
+# 手臂/头部使用 MotorevoActuator (CAN 单帧协议)
+# 需要独立的 canbus 配置文件 (arm_test_canbus_cofig.yaml)
+arm:
+  # MotorevoActuator 使用的 canbus 配置文件路径
+  # 相对于程序运行目录, 或绝对路径
+  canbus_config: "src/leju-hardware/config/arm_test_canbus_cofig.yaml"
+  # 手臂控制频率 (Hz), 手臂电机不支持 CANFD, 典型 250Hz
+  frequency_hz: 250
+  # 电机总数 (左臂4 + 右臂4 + 头2 = 10), 由 MotorevoActuator 自动从配置文件读取
+  # 电机顺序 (0-based index, 由配置文件中 bcan2/bcan3 设备顺序决定):
+  #   0-3: 左臂 (Larm_joint_01~04)
+  #   4-5: 头部 (Head_yaw, Head_pitch)
+  #   6-9: 右臂 (Rarm_joint_01~04)
+
+  # 左臂动作关键帧 (4 个关节, 单位: 弧度偏移)
+  # 7 帧, 帧时长 1.9 秒, 单轮周期 = 13.3 秒
+  # 参考 kuavo-ros-control arm_breakin_roban_v17_dual_config.yaml
+  frame_duration_ms: 1900
+
+  # 左臂关键帧 [帧][4关节], 单位: 弧度
+  # 右臂通过镜像映射: R1=L1, R2=-L2, R3=-L3, R4=L4
+  left_arm_keyframes:
+    - [0.00, 0.00, 0.00, 0.00]       # 帧0 零位
+    - [-1.00, 1.00, 1.00, -1.50]     # 帧1
+    - [-1.40, 1.80, 1.35, -0.20]     # 帧2
+    - [0.00, 2.50, 0.00, -1.60]      # 帧3
+    - [0.60, 1.50, -1.35, -2.00]     # 帧4
+    - [1.40, 0.50, -1.00, -1.00]     # 帧5
+    - [0.00, 0.00, 0.00, 0.00]       # 帧6 回零
+
+  # 右臂镜像规则 (索引 0-based)
+  # 格式: right_idx: { from: left_idx, negate: true/false }
+  right_arm_mirror:
+    0: { from: 0, negate: false }    # R1 = L1 (同向)
+    1: { from: 1, negate: true  }    # R2 = -L2 (反向)
+    2: { from: 2, negate: true  }    # R3 = -L3 (反向)
+    3: { from: 3, negate: false }    # R4 = L4 (同向)
+
+  # 头部关键帧 [帧][2关节], 单位: 弧度
+  # head_yaw, head_pitch
+  head_keyframes:
+    - [0.00, 0.00]     # 帧0
+    - [1.00, 0.60]     # 帧1
+    - [-1.00, 0.00]    # 帧2
+    - [0.00, 0.00]     # 帧3
+    - [1.00, 0.60]     # 帧4
+    - [-1.00, 0.00]    # 帧5
+    - [0.00, 0.00]     # 帧6
+
+  # 手臂 kp/kd
+  arm_kp: 20.0
+  arm_kd: 1.0
+  head_kp: 10.0
+  head_kd: 1.0
+
+# ==================== 安全限位 ====================
+safety:
+  # 腿部各关节最大偏移量 (度), 超过则紧急停止
+  max_offset_deg:
+    1: 130   # hip_roll
+    2: 100   # hip_pitch
+    3: 40    # knee
+    4: 150   # knee2
+    5: 30    # ankle_pitch
+    6: 30    # ankle_roll
+    7: 110   # waist
+  # 手臂各关节最大偏移量 (弧度)
+  arm_max_offset_rad: 3.0
+  head_max_offset_rad: 1.5
+  # 通信丢失检测: 连续 N 帧反馈位置不变视为通信丢失
+  stale_threshold: 50
+  # 温度保护阈值 (°C)
+  max_temperature: 80

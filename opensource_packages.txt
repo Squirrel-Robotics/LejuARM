@@ -1,0 +1,29 @@
+# aarch64 开源发布例外清单
+#
+# source 全集由闭源根 CMakeLists.txt 中的 add_subdirectory(src/<pkg>) 决定；
+# 未在本文件声明的包默认按 source 整包发布。本文件只声明闭源例外：
+#
+#   stub    <pkg>                 预编译 SDK 库 + include，src/ 不发布
+#   binary  <pkg>                 installed/bin 预编译产物，src/ 不发布
+#   binary  <pkg>:<sub>[,<sub>]   预编译产物，并只发布指定明文子目录
+#
+# pkg 路径相对 src/。source 行已废弃；需要默认 source 时不要写任何条目。
+# 新增到闭源根 CMakeLists.txt 的 src 包会自动进入开源发布，除非在此声明例外。
+
+# 核心库：预编译 .so + include，隐藏实现
+stub    lejusdk/lejusdk-lowlevel
+stub    lejusdk/lejusdk-vr
+
+# DDS SDK：只发布预编译库和公共头；依赖它们的功能包默认发布源码
+stub    lejusdk/lejusdk-comm-dds/lejusdk-dds-idl
+stub    lejusdk/lejusdk-comm-dds/lejusdk-topic-pubsub
+stub    lejusdk/lejusdk-comm-dds/lejusdk-dds-rpc
+
+# 纯预编译产物
+binary  leju-hardware:config
+binary  leju-controllers/leju-rl-controller:config
+binary  leju-mujoco-sim
+binary  lejusdk/lejusdk-recorder
+
+# VR 完整链路默认按 source 发布：leju-ik / leju-remote / leju-vr-control。
+# 构建完整 VR 需要目标架构的 Drake、Eigen3、yaml-cpp、Protobuf 及其运行时。

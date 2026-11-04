@@ -1,0 +1,3570 @@
+{
+  "configById": {
+    "Plot!imu_quat": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.quat[0]",
+          "enabled": true,
+          "label": "w"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.quat[1]",
+          "enabled": true,
+          "label": "x"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.quat[2]",
+          "enabled": true,
+          "label": "y"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.quat[3]",
+          "enabled": true,
+          "label": "z"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "IMU 四元数"
+    },
+    "Plot!imu_gyro": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.gyro[0]",
+          "enabled": true,
+          "label": "x"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.gyro[1]",
+          "enabled": true,
+          "label": "y"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.gyro[2]",
+          "enabled": true,
+          "label": "z"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "IMU 角速度"
+    },
+    "Plot!imu_acc": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.acc[0]",
+          "enabled": true,
+          "label": "x"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.acc[1]",
+          "enabled": true,
+          "label": "y"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/imu_state.acc[2]",
+          "enabled": true,
+          "label": "z"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "IMU 加速度"
+    },
+    "Plot!leg_l_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[0]",
+          "enabled": true,
+          "label": "leg_l1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[1]",
+          "enabled": true,
+          "label": "leg_l2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[2]",
+          "enabled": true,
+          "label": "leg_l3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[3]",
+          "enabled": true,
+          "label": "leg_l4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[4]",
+          "enabled": true,
+          "label": "leg_l5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[5]",
+          "enabled": true,
+          "label": "leg_l6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[0]",
+          "enabled": true,
+          "label": "leg_l1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[1]",
+          "enabled": true,
+          "label": "leg_l2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[2]",
+          "enabled": true,
+          "label": "leg_l3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[3]",
+          "enabled": true,
+          "label": "leg_l4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[4]",
+          "enabled": true,
+          "label": "leg_l5_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[5]",
+          "enabled": true,
+          "label": "leg_l6_cmd"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左腿关节位置"
+    },
+    "Plot!leg_r_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[6]",
+          "enabled": true,
+          "label": "leg_r1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[7]",
+          "enabled": true,
+          "label": "leg_r2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[8]",
+          "enabled": true,
+          "label": "leg_r3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[9]",
+          "enabled": true,
+          "label": "leg_r4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[10]",
+          "enabled": true,
+          "label": "leg_r5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[11]",
+          "enabled": true,
+          "label": "leg_r6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[6]",
+          "enabled": true,
+          "label": "leg_r1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[7]",
+          "enabled": true,
+          "label": "leg_r2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[8]",
+          "enabled": true,
+          "label": "leg_r3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[9]",
+          "enabled": true,
+          "label": "leg_r4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[10]",
+          "enabled": true,
+          "label": "leg_r5_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[11]",
+          "enabled": true,
+          "label": "leg_r6_cmd"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右腿关节位置"
+    },
+    "Plot!leg_l_tau": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[0]",
+          "enabled": true,
+          "label": "l1_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[1]",
+          "enabled": true,
+          "label": "l2_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[2]",
+          "enabled": true,
+          "label": "l3_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[3]",
+          "enabled": true,
+          "label": "l4_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[4]",
+          "enabled": true,
+          "label": "l5_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[5]",
+          "enabled": true,
+          "label": "l6_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[0]",
+          "enabled": true,
+          "label": "l1_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[1]",
+          "enabled": true,
+          "label": "l2_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[2]",
+          "enabled": true,
+          "label": "l3_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[3]",
+          "enabled": true,
+          "label": "l4_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[4]",
+          "enabled": true,
+          "label": "l5_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[5]",
+          "enabled": true,
+          "label": "l6_joint_cmd_tau"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左腿关节力矩"
+    },
+    "Plot!leg_r_tau": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[6]",
+          "enabled": true,
+          "label": "r1_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[7]",
+          "enabled": true,
+          "label": "r2_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[8]",
+          "enabled": true,
+          "label": "r3_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[9]",
+          "enabled": true,
+          "label": "r4_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[10]",
+          "enabled": true,
+          "label": "r5_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[11]",
+          "enabled": true,
+          "label": "r6_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[6]",
+          "enabled": true,
+          "label": "r1_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[7]",
+          "enabled": true,
+          "label": "r2_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[8]",
+          "enabled": true,
+          "label": "r3_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[9]",
+          "enabled": true,
+          "label": "r4_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[10]",
+          "enabled": true,
+          "label": "r5_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[11]",
+          "enabled": true,
+          "label": "r6_joint_cmd_tau"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右腿关节力矩"
+    },
+    "Plot!leg_l_v": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[0]",
+          "enabled": true,
+          "label": "leg_l1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[1]",
+          "enabled": true,
+          "label": "leg_l2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[2]",
+          "enabled": true,
+          "label": "leg_l3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[3]",
+          "enabled": true,
+          "label": "leg_l4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[4]",
+          "enabled": true,
+          "label": "leg_l5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[5]",
+          "enabled": true,
+          "label": "leg_l6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[0]",
+          "enabled": true,
+          "label": "leg_l1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[1]",
+          "enabled": true,
+          "label": "leg_l2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[2]",
+          "enabled": true,
+          "label": "leg_l3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[3]",
+          "enabled": true,
+          "label": "leg_l4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[4]",
+          "enabled": true,
+          "label": "leg_l5_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[5]",
+          "enabled": true,
+          "label": "leg_l6_cmd"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左腿关节速度"
+    },
+    "Plot!leg_r_v": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[6]",
+          "enabled": true,
+          "label": "leg_r1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[7]",
+          "enabled": true,
+          "label": "leg_r2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[8]",
+          "enabled": true,
+          "label": "leg_r3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[9]",
+          "enabled": true,
+          "label": "leg_r4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[10]",
+          "enabled": true,
+          "label": "leg_r5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[11]",
+          "enabled": true,
+          "label": "leg_r6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[6]",
+          "enabled": true,
+          "label": "leg_r1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[7]",
+          "enabled": true,
+          "label": "leg_r2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[8]",
+          "enabled": true,
+          "label": "leg_r3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[9]",
+          "enabled": true,
+          "label": "leg_r4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[10]",
+          "enabled": true,
+          "label": "leg_r5_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[11]",
+          "enabled": true,
+          "label": "leg_r6_cmd"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右腿关节速度"
+    },
+    "Tab!leg_joints": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "腿部关节位置",
+          "layout": {
+            "first": "Plot!leg_l_q",
+            "second": "Plot!leg_r_q",
+            "direction": "column"
+          }
+        },
+        {
+          "title": "腿部关节速度",
+          "layout": {
+            "first": "Plot!leg_l_v",
+            "second": "Plot!leg_r_v",
+            "direction": "column"
+          }
+        },
+        {
+          "title": "腿部关节力矩",
+          "layout": {
+            "first": "Plot!leg_l_tau",
+            "second": "Plot!leg_r_tau",
+            "direction": "column"
+          }
+        }
+      ]
+    },
+    "Plot!arm_l_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[13]",
+          "enabled": true,
+          "label": "l1_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[13]",
+          "enabled": true,
+          "label": "l1_joint_cmd_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[14]",
+          "enabled": true,
+          "label": "l2_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[14]",
+          "enabled": true,
+          "label": "l2_joint_cmd_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[15]",
+          "enabled": true,
+          "label": "l3_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[15]",
+          "enabled": true,
+          "label": "l3_joint_cmd_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[16]",
+          "enabled": true,
+          "label": "l4_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[16]",
+          "enabled": true,
+          "label": "l4_joint_cmd_q"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂关节 (state vs cmd)"
+    },
+    "Plot!arm_r_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[17]",
+          "enabled": true,
+          "label": "r1_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[17]",
+          "enabled": true,
+          "label": "r1_joint_cmd_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[18]",
+          "enabled": true,
+          "label": "r2_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[18]",
+          "enabled": true,
+          "label": "r2_joint_cmd_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[19]",
+          "enabled": true,
+          "label": "r3_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[19]",
+          "enabled": true,
+          "label": "r3_joint_cmd_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[20]",
+          "enabled": true,
+          "label": "r4_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[20]",
+          "enabled": true,
+          "label": "r4_joint_cmd_q"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂关节 (state vs cmd)"
+    },
+    "Plot!arm_l_v": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[13]",
+          "enabled": true,
+          "label": "l1_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[13]",
+          "enabled": true,
+          "label": "l1_joint_cmd_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[14]",
+          "enabled": true,
+          "label": "l2_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[14]",
+          "enabled": true,
+          "label": "l2_joint_cmd_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[15]",
+          "enabled": true,
+          "label": "l3_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[15]",
+          "enabled": true,
+          "label": "l3_joint_cmd_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[16]",
+          "enabled": true,
+          "label": "l4_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[16]",
+          "enabled": true,
+          "label": "l4_joint_cmd_v"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂关节速度"
+    },
+    "Plot!arm_r_v": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[17]",
+          "enabled": true,
+          "label": "r1_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[17]",
+          "enabled": true,
+          "label": "r1_joint_cmd_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[18]",
+          "enabled": true,
+          "label": "r2_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[18]",
+          "enabled": true,
+          "label": "r2_joint_cmd_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[19]",
+          "enabled": true,
+          "label": "r3_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[19]",
+          "enabled": true,
+          "label": "r3_joint_cmd_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[20]",
+          "enabled": true,
+          "label": "r4_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[20]",
+          "enabled": true,
+          "label": "r4_joint_cmd_v"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂关节速度"
+    },
+    "Plot!arm_l_tau": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[13]",
+          "enabled": true,
+          "label": "l1_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[13]",
+          "enabled": true,
+          "label": "l1_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[14]",
+          "enabled": true,
+          "label": "l2_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[14]",
+          "enabled": true,
+          "label": "l2_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[15]",
+          "enabled": true,
+          "label": "l3_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[15]",
+          "enabled": true,
+          "label": "l3_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[16]",
+          "enabled": true,
+          "label": "l4_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[16]",
+          "enabled": true,
+          "label": "l4_joint_cmd_tau"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂关节力矩"
+    },
+    "Plot!arm_r_tau": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[17]",
+          "enabled": true,
+          "label": "r1_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[17]",
+          "enabled": true,
+          "label": "r1_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[18]",
+          "enabled": true,
+          "label": "r2_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[18]",
+          "enabled": true,
+          "label": "r2_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[19]",
+          "enabled": true,
+          "label": "r3_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[19]",
+          "enabled": true,
+          "label": "r3_joint_cmd_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[20]",
+          "enabled": true,
+          "label": "r4_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[20]",
+          "enabled": true,
+          "label": "r4_joint_cmd_tau"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂关节力矩"
+    },
+    "Tab!arm_joints": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "手臂关节位置",
+          "layout": {
+            "first": "Plot!arm_l_q",
+            "second": "Plot!arm_r_q",
+            "direction": "column"
+          }
+        },
+        {
+          "title": "手臂关节速度",
+          "layout": {
+            "first": "Plot!arm_l_v",
+            "second": "Plot!arm_r_v",
+            "direction": "column"
+          }
+        },
+        {
+          "title": "手臂关节力矩",
+          "layout": {
+            "first": "Plot!arm_l_tau",
+            "second": "Plot!arm_r_tau",
+            "direction": "column"
+          }
+        }
+      ]
+    },
+    "Plot!cmd_arm_l_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[12]",
+          "enabled": true,
+          "label": "l1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[13]",
+          "enabled": true,
+          "label": "l2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[14]",
+          "enabled": true,
+          "label": "l3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[15]",
+          "enabled": true,
+          "label": "l4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[16]",
+          "enabled": true,
+          "label": "l5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[17]",
+          "enabled": true,
+          "label": "l6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[18]",
+          "enabled": true,
+          "label": "l7"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂关节指令 (cmd q)"
+    },
+    "Plot!all_joint_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[0]",
+          "enabled": true,
+          "label": "q0"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[1]",
+          "enabled": true,
+          "label": "q1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[2]",
+          "enabled": true,
+          "label": "q2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[3]",
+          "enabled": true,
+          "label": "q3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[4]",
+          "enabled": true,
+          "label": "q4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[5]",
+          "enabled": true,
+          "label": "q5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[6]",
+          "enabled": true,
+          "label": "q6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[7]",
+          "enabled": true,
+          "label": "q7"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "手臂关节位置 (state q)"
+    },
+    "Plot!all_cmd_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[0]",
+          "enabled": true,
+          "label": "q0"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[1]",
+          "enabled": true,
+          "label": "q1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[2]",
+          "enabled": true,
+          "label": "q2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[3]",
+          "enabled": true,
+          "label": "q3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[4]",
+          "enabled": true,
+          "label": "q4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[5]",
+          "enabled": true,
+          "label": "q5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[6]",
+          "enabled": true,
+          "label": "q6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[7]",
+          "enabled": true,
+          "label": "q7"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "手臂关节指令 (cmd q)"
+    },
+    "Plot!waist_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[12]",
+          "enabled": true,
+          "label": "waist_joint_state_q"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[12]",
+          "enabled": true,
+          "label": "waist_joint_cmd_q"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "腰部关节位置"
+    },
+    "Plot!waist_v": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[12]",
+          "enabled": true,
+          "label": "waist_joint_state_v"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.v[12]",
+          "enabled": true,
+          "label": "waist_joint_cmd_v"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "腰部关节速度"
+    },
+    "Plot!waist_tau": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[12]",
+          "enabled": true,
+          "label": "waist_joint_state_tau"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.tau[12]",
+          "enabled": true,
+          "label": "waist_joint_cmd_tau"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "腰部关节力矩"
+    },
+    "Plot!cmd_arm_r_q": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[19]",
+          "enabled": true,
+          "label": "r1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[20]",
+          "enabled": true,
+          "label": "r2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[21]",
+          "enabled": true,
+          "label": "r3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[22]",
+          "enabled": true,
+          "label": "r4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[23]",
+          "enabled": true,
+          "label": "r5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[24]",
+          "enabled": true,
+          "label": "r6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_cmd.q[25]",
+          "enabled": true,
+          "label": "r7"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂关节指令 (cmd q)"
+    },
+    "Plot!joy_axes": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.axes[0]",
+          "enabled": true,
+          "label": "axis0"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.axes[1]",
+          "enabled": true,
+          "label": "axis1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.axes[2]",
+          "enabled": true,
+          "label": "axis2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.axes[3]",
+          "enabled": true,
+          "label": "axis3"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "手柄摇杆"
+    },
+    "Plot!joy_buttons": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[0]",
+          "enabled": true,
+          "label": "A (south)"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[1]",
+          "enabled": true,
+          "label": "B (east)"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[2]",
+          "enabled": true,
+          "label": "X (west)"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[3]",
+          "enabled": true,
+          "label": "Y (north)"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[4]",
+          "enabled": true,
+          "label": "back"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[5]",
+          "enabled": true,
+          "label": "guide"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[6]",
+          "enabled": true,
+          "label": "start"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joy.buttons[7]",
+          "enabled": true,
+          "label": "L_stick"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "手柄按键"
+    },
+    "RawMessages!hw_state": {
+      "topicPath": "/rt/hardware/state",
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "foxglovePanelTitle": "硬件状态"
+    },
+    "RawMessages!hw_stop": {
+      "topicPath": "/rt/hardware/stop",
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "foxglovePanelTitle": "硬件停止信号"
+    },
+    "Tab!root": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "IMU",
+          "layout": {
+            "first": "Plot!imu_quat",
+            "second": {
+              "first": "Plot!imu_gyro",
+              "second": "Plot!imu_acc",
+              "direction": "row"
+            },
+            "direction": "column",
+            "splitPercentage": 50
+          }
+        },
+        {
+          "title": "腿部关节",
+          "layout": "Tab!leg_joints"
+        },
+        {
+          "title": "手臂关节",
+          "layout": "Tab!arm_joints"
+        },
+        {
+          "title": "腰部关节",
+          "layout": {
+            "first": "Plot!waist_q",
+            "second": {
+              "first": "Plot!waist_v",
+              "second": "Plot!waist_tau",
+              "direction": "column"
+            },
+            "direction": "column",
+            "splitPercentage": 33
+          }
+        },
+        {
+          "title": "手柄",
+          "layout": {
+            "first": "Plot!joy_axes",
+            "second": "Plot!joy_buttons",
+            "direction": "column",
+            "splitPercentage": 50
+          }
+        },
+        {
+          "title": "Misc",
+          "layout": {
+            "first": "RawMessages!hw_state",
+            "second": "RawMessages!hw_stop",
+            "direction": "row"
+          }
+        },
+        {
+          "title": "控制器",
+          "layout": "Tab!rl_obs"
+        },
+        {
+          "title": "外部接口",
+          "layout": "Tab!ext_interface"
+        }
+      ]
+    },
+    "Plot!amp_arm_mode": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/arm_mode.data",
+          "enabled": true,
+          "label": "arm_mode"
+        }
+      ],
+      "foxglovePanelTitle": "arm_mode"
+    },
+    "Plot!amp_waist_mode": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/waist_mode.data",
+          "enabled": true,
+          "label": "waist_mode"
+        }
+      ],
+      "foxglovePanelTitle": "waist_mode"
+    },
+    "Plot!amp_velocity_commands": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/velocity_commands.data[0]",
+          "enabled": true,
+          "label": "x"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/velocity_commands.data[1]",
+          "enabled": true,
+          "label": "y"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/velocity_commands.data[2]",
+          "enabled": true,
+          "label": "yaw"
+        }
+      ],
+      "foxglovePanelTitle": "velocity_commands"
+    },
+    "Plot!amp_cmd_stance": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/cmd_stance.data[0]",
+          "enabled": true,
+          "label": "cmd_stance"
+        }
+      ],
+      "foxglovePanelTitle": "cmd_stance"
+    },
+    "Plot!amp_actions": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[0]",
+          "enabled": true,
+          "label": "waist"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[1]",
+          "enabled": true,
+          "label": "leg_l1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[2]",
+          "enabled": true,
+          "label": "leg_l2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[3]",
+          "enabled": true,
+          "label": "leg_l3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[4]",
+          "enabled": true,
+          "label": "leg_l4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[5]",
+          "enabled": true,
+          "label": "leg_l5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[6]",
+          "enabled": true,
+          "label": "leg_l6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[7]",
+          "enabled": true,
+          "label": "leg_r1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[8]",
+          "enabled": true,
+          "label": "leg_r2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[9]",
+          "enabled": true,
+          "label": "leg_r3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[10]",
+          "enabled": true,
+          "label": "leg_r4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[11]",
+          "enabled": true,
+          "label": "leg_r5"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[12]",
+          "enabled": true,
+          "label": "leg_r6"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[13]",
+          "enabled": true,
+          "label": "arm_l1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[14]",
+          "enabled": true,
+          "label": "arm_l2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[15]",
+          "enabled": true,
+          "label": "arm_l3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[16]",
+          "enabled": true,
+          "label": "arm_l4"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[17]",
+          "enabled": true,
+          "label": "arm_r1"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[18]",
+          "enabled": true,
+          "label": "arm_r2"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[19]",
+          "enabled": true,
+          "label": "arm_r3"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[20]",
+          "enabled": true,
+          "label": "arm_r4"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "动作输出"
+    },
+    "Plot!mimic_motion_command": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[1]",
+          "enabled": true,
+          "label": "[1]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[2]",
+          "enabled": true,
+          "label": "[2]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[3]",
+          "enabled": true,
+          "label": "[3]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[4]",
+          "enabled": true,
+          "label": "[4]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[5]",
+          "enabled": true,
+          "label": "[5]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[6]",
+          "enabled": true,
+          "label": "[6]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[7]",
+          "enabled": true,
+          "label": "[7]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[8]",
+          "enabled": true,
+          "label": "[8]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[9]",
+          "enabled": true,
+          "label": "[9]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[10]",
+          "enabled": true,
+          "label": "[10]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[11]",
+          "enabled": true,
+          "label": "[11]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[12]",
+          "enabled": true,
+          "label": "[12]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[13]",
+          "enabled": true,
+          "label": "[13]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[14]",
+          "enabled": true,
+          "label": "[14]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[15]",
+          "enabled": true,
+          "label": "[15]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[16]",
+          "enabled": true,
+          "label": "[16]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[17]",
+          "enabled": true,
+          "label": "[17]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[18]",
+          "enabled": true,
+          "label": "[18]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[19]",
+          "enabled": true,
+          "label": "[19]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[20]",
+          "enabled": true,
+          "label": "[20]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[21]",
+          "enabled": true,
+          "label": "[21]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[22]",
+          "enabled": true,
+          "label": "[22]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[23]",
+          "enabled": true,
+          "label": "[23]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[24]",
+          "enabled": true,
+          "label": "[24]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[25]",
+          "enabled": true,
+          "label": "[25]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[26]",
+          "enabled": true,
+          "label": "[26]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[27]",
+          "enabled": true,
+          "label": "[27]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[28]",
+          "enabled": true,
+          "label": "[28]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[29]",
+          "enabled": true,
+          "label": "[29]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[30]",
+          "enabled": true,
+          "label": "[30]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[31]",
+          "enabled": true,
+          "label": "[31]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[32]",
+          "enabled": true,
+          "label": "[32]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[33]",
+          "enabled": true,
+          "label": "[33]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[34]",
+          "enabled": true,
+          "label": "[34]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[35]",
+          "enabled": true,
+          "label": "[35]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[36]",
+          "enabled": true,
+          "label": "[36]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[37]",
+          "enabled": true,
+          "label": "[37]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[38]",
+          "enabled": true,
+          "label": "[38]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[39]",
+          "enabled": true,
+          "label": "[39]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[40]",
+          "enabled": true,
+          "label": "[40]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[41]",
+          "enabled": true,
+          "label": "[41]"
+        }
+      ],
+      "foxglovePanelTitle": "motion_command"
+    },
+    "Plot!mimic_motion_target_height": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_target_height.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        }
+      ],
+      "foxglovePanelTitle": "motion_target_height"
+    },
+    "Plot!mimic_motion_anchor_ori_b": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_anchor_ori_b.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_anchor_ori_b.data[1]",
+          "enabled": true,
+          "label": "[1]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_anchor_ori_b.data[2]",
+          "enabled": true,
+          "label": "[2]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_anchor_ori_b.data[3]",
+          "enabled": true,
+          "label": "[3]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_anchor_ori_b.data[4]",
+          "enabled": true,
+          "label": "[4]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_anchor_ori_b.data[5]",
+          "enabled": true,
+          "label": "[5]"
+        }
+      ],
+      "foxglovePanelTitle": "motion_anchor_ori_b"
+    },
+    "Plot!mimic_projected_gravity": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/projected_gravity.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/projected_gravity.data[1]",
+          "enabled": true,
+          "label": "[1]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/projected_gravity.data[2]",
+          "enabled": true,
+          "label": "[2]"
+        }
+      ],
+      "foxglovePanelTitle": "projected_gravity"
+    },
+    "Plot!mimic_base_ang_vel": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/base_ang_vel.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/base_ang_vel.data[1]",
+          "enabled": true,
+          "label": "[1]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/base_ang_vel.data[2]",
+          "enabled": true,
+          "label": "[2]"
+        }
+      ],
+      "foxglovePanelTitle": "base_ang_vel"
+    },
+    "Plot!mimic_joint_pos": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[1]",
+          "enabled": true,
+          "label": "[1]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[2]",
+          "enabled": true,
+          "label": "[2]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[3]",
+          "enabled": true,
+          "label": "[3]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[4]",
+          "enabled": true,
+          "label": "[4]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[5]",
+          "enabled": true,
+          "label": "[5]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[6]",
+          "enabled": true,
+          "label": "[6]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[7]",
+          "enabled": true,
+          "label": "[7]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[8]",
+          "enabled": true,
+          "label": "[8]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[9]",
+          "enabled": true,
+          "label": "[9]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[10]",
+          "enabled": true,
+          "label": "[10]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[11]",
+          "enabled": true,
+          "label": "[11]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[12]",
+          "enabled": true,
+          "label": "[12]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[13]",
+          "enabled": true,
+          "label": "[13]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[14]",
+          "enabled": true,
+          "label": "[14]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[15]",
+          "enabled": true,
+          "label": "[15]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[16]",
+          "enabled": true,
+          "label": "[16]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[17]",
+          "enabled": true,
+          "label": "[17]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[18]",
+          "enabled": true,
+          "label": "[18]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[19]",
+          "enabled": true,
+          "label": "[19]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[20]",
+          "enabled": true,
+          "label": "[20]"
+        }
+      ],
+      "foxglovePanelTitle": "joint_pos"
+    },
+    "Plot!mimic_joint_vel": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[1]",
+          "enabled": true,
+          "label": "[1]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[2]",
+          "enabled": true,
+          "label": "[2]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[3]",
+          "enabled": true,
+          "label": "[3]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[4]",
+          "enabled": true,
+          "label": "[4]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[5]",
+          "enabled": true,
+          "label": "[5]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[6]",
+          "enabled": true,
+          "label": "[6]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[7]",
+          "enabled": true,
+          "label": "[7]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[8]",
+          "enabled": true,
+          "label": "[8]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[9]",
+          "enabled": true,
+          "label": "[9]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[10]",
+          "enabled": true,
+          "label": "[10]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[11]",
+          "enabled": true,
+          "label": "[11]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[12]",
+          "enabled": true,
+          "label": "[12]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[13]",
+          "enabled": true,
+          "label": "[13]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[14]",
+          "enabled": true,
+          "label": "[14]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[15]",
+          "enabled": true,
+          "label": "[15]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[16]",
+          "enabled": true,
+          "label": "[16]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[17]",
+          "enabled": true,
+          "label": "[17]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[18]",
+          "enabled": true,
+          "label": "[18]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[19]",
+          "enabled": true,
+          "label": "[19]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_vel.data[20]",
+          "enabled": true,
+          "label": "[20]"
+        }
+      ],
+      "foxglovePanelTitle": "joint_vel"
+    },
+    "Plot!mimic_actions": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[0]",
+          "enabled": true,
+          "label": "[0]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[1]",
+          "enabled": true,
+          "label": "[1]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[2]",
+          "enabled": true,
+          "label": "[2]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[3]",
+          "enabled": true,
+          "label": "[3]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[4]",
+          "enabled": true,
+          "label": "[4]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[5]",
+          "enabled": true,
+          "label": "[5]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[6]",
+          "enabled": true,
+          "label": "[6]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[7]",
+          "enabled": true,
+          "label": "[7]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[8]",
+          "enabled": true,
+          "label": "[8]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[9]",
+          "enabled": true,
+          "label": "[9]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[10]",
+          "enabled": true,
+          "label": "[10]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[11]",
+          "enabled": true,
+          "label": "[11]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[12]",
+          "enabled": true,
+          "label": "[12]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[13]",
+          "enabled": true,
+          "label": "[13]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[14]",
+          "enabled": true,
+          "label": "[14]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[15]",
+          "enabled": true,
+          "label": "[15]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[16]",
+          "enabled": true,
+          "label": "[16]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[17]",
+          "enabled": true,
+          "label": "[17]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[18]",
+          "enabled": true,
+          "label": "[18]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[19]",
+          "enabled": true,
+          "label": "[19]"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/actions.data[20]",
+          "enabled": true,
+          "label": "[20]"
+        }
+      ],
+      "foxglovePanelTitle": "actions"
+    },
+    "Tab!rl_obs": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "amp",
+          "layout": "Tab!amp"
+        },
+        {
+          "title": "mimic",
+          "layout": "Tab!mimic"
+        }
+      ]
+    },
+    "Tab!mimic": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "观测",
+          "layout": {
+            "first": {
+              "first": "Plot!mimic_base_ang_vel",
+              "second": {
+                "first": "Plot!mimic_projected_gravity",
+                "second": "Plot!mimic_motion_anchor_ori_b",
+                "direction": "row"
+              },
+              "direction": "row"
+            },
+            "second": {
+              "first": {
+                "first": "Plot!mimic_joint_pos",
+                "second": {
+                  "first": "Plot!mimic_joint_vel",
+                  "second": "Plot!mimic_actions",
+                  "direction": "row"
+                },
+                "direction": "row"
+              },
+              "second": {
+                "first": "Plot!mimic_motion_command",
+                "second": "Plot!mimic_motion_target_height",
+                "direction": "row"
+              },
+              "direction": "column"
+            },
+            "direction": "column"
+          }
+        },
+        {
+          "title": "左腿-跟踪对比",
+          "layout": {
+            "first": "Plot!mimic_act_leg_l",
+            "second": "Plot!mimic_motion_frame",
+            "direction": "column",
+            "splitPercentage": 85
+          }
+        },
+        {
+          "title": "右腿-跟踪对比",
+          "layout": {
+            "first": "Plot!mimic_act_leg_r",
+            "second": "Plot!mimic_motion_frame",
+            "direction": "column",
+            "splitPercentage": 85
+          }
+        },
+        {
+          "title": "左臂-跟踪对比",
+          "layout": {
+            "first": "Plot!mimic_act_arm_l",
+            "second": "Plot!mimic_motion_frame",
+            "direction": "column",
+            "splitPercentage": 85
+          }
+        },
+        {
+          "title": "右臂-跟踪对比",
+          "layout": {
+            "first": "Plot!mimic_act_arm_r",
+            "second": "Plot!mimic_motion_frame",
+            "direction": "column",
+            "splitPercentage": 85
+          }
+        }
+      ]
+    },
+    "Plot!mimic_act_leg_l": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左腿 tgt vs cur vs ref",
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[0]",
+          "enabled": true,
+          "label": "leg_l1_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[0]",
+          "enabled": true,
+          "label": "leg_l1_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[0]",
+          "enabled": true,
+          "label": "leg_l1_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[1]",
+          "enabled": true,
+          "label": "leg_l2_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[1]",
+          "enabled": true,
+          "label": "leg_l2_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[1]",
+          "enabled": true,
+          "label": "leg_l2_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[2]",
+          "enabled": true,
+          "label": "leg_l3_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[2]",
+          "enabled": true,
+          "label": "leg_l3_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[2]",
+          "enabled": true,
+          "label": "leg_l3_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[3]",
+          "enabled": true,
+          "label": "leg_l4_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[3]",
+          "enabled": true,
+          "label": "leg_l4_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[3]",
+          "enabled": true,
+          "label": "leg_l4_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[4]",
+          "enabled": true,
+          "label": "leg_l5_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[4]",
+          "enabled": true,
+          "label": "leg_l5_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[4]",
+          "enabled": true,
+          "label": "leg_l5_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[5]",
+          "enabled": true,
+          "label": "leg_l6_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[5]",
+          "enabled": true,
+          "label": "leg_l6_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[5]",
+          "enabled": true,
+          "label": "leg_l6_motion_cmd"
+        }
+      ]
+    },
+    "Plot!mimic_act_leg_r": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右腿 tgt vs cur vs ref",
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[6]",
+          "enabled": true,
+          "label": "leg_r1_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[6]",
+          "enabled": true,
+          "label": "leg_r1_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[6]",
+          "enabled": true,
+          "label": "leg_r1_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[7]",
+          "enabled": true,
+          "label": "leg_r2_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[7]",
+          "enabled": true,
+          "label": "leg_r2_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[7]",
+          "enabled": true,
+          "label": "leg_r2_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[8]",
+          "enabled": true,
+          "label": "leg_r3_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[8]",
+          "enabled": true,
+          "label": "leg_r3_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[8]",
+          "enabled": true,
+          "label": "leg_r3_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[9]",
+          "enabled": true,
+          "label": "leg_r4_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[9]",
+          "enabled": true,
+          "label": "leg_r4_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[9]",
+          "enabled": true,
+          "label": "leg_r4_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[10]",
+          "enabled": true,
+          "label": "leg_r5_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[10]",
+          "enabled": true,
+          "label": "leg_r5_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[10]",
+          "enabled": true,
+          "label": "leg_r5_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[11]",
+          "enabled": true,
+          "label": "leg_r6_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[11]",
+          "enabled": true,
+          "label": "leg_r6_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[11]",
+          "enabled": true,
+          "label": "leg_r6_motion_cmd"
+        }
+      ]
+    },
+    "Plot!mimic_act_arm_l": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[13]",
+          "enabled": true,
+          "label": "arm_l1_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[13]",
+          "enabled": true,
+          "label": "arm_l1_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[13]",
+          "enabled": true,
+          "label": "arm_l1_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[14]",
+          "enabled": true,
+          "label": "arm_l2_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[14]",
+          "enabled": true,
+          "label": "arm_l2_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[14]",
+          "enabled": true,
+          "label": "arm_l2_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[15]",
+          "enabled": true,
+          "label": "arm_l3_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[15]",
+          "enabled": true,
+          "label": "arm_l3_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[15]",
+          "enabled": true,
+          "label": "arm_l3_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[16]",
+          "enabled": true,
+          "label": "arm_l4_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[16]",
+          "enabled": true,
+          "label": "arm_l4_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[16]",
+          "enabled": true,
+          "label": "arm_l4_motion_cmd"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂 tgt vs cur vs ref"
+    },
+    "Plot!mimic_act_arm_r": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[17]",
+          "enabled": true,
+          "label": "arm_r1_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[17]",
+          "enabled": true,
+          "label": "arm_r1_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[17]",
+          "enabled": true,
+          "label": "arm_r1_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[18]",
+          "enabled": true,
+          "label": "arm_r2_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[18]",
+          "enabled": true,
+          "label": "arm_r2_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[18]",
+          "enabled": true,
+          "label": "arm_r2_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[19]",
+          "enabled": true,
+          "label": "arm_r3_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[19]",
+          "enabled": true,
+          "label": "arm_r3_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[19]",
+          "enabled": true,
+          "label": "arm_r3_motion_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/q_target.data[20]",
+          "enabled": true,
+          "label": "arm_r4_q_target"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/joint_pos.data[20]",
+          "enabled": true,
+          "label": "arm_r4_joint_pos"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/obs/motion_command.data[20]",
+          "enabled": true,
+          "label": "arm_r4_motion_cmd"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂 tgt vs cur vs ref"
+    },
+    "Plot!mimic_motion_frame": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "motion frame",
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rl_controller/motion_frame.data",
+          "enabled": true,
+          "label": "frame"
+        }
+      ]
+    },
+    "Plot!ext_head_q": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "头部跟踪 (此机型无头部)",
+      "paths": []
+    },
+    "Plot!ext_waist_q": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "腰部跟踪 - 轨迹指令 vs 实际输出",
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/waist_trajectory.q[0]",
+          "enabled": true,
+          "label": "waist_yaw_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[12]",
+          "enabled": true,
+          "label": "waist_yaw_state"
+        }
+      ]
+    },
+    "Tab!ext_interface": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "手臂",
+          "layout": "Tab!ext_arm"
+        },
+        {
+          "title": "头部",
+          "layout": "Plot!ext_head_q"
+        },
+        {
+          "title": "腰部",
+          "layout": {
+            "first": "Plot!ext_waist_q",
+            "second": "Plot!amp_waist_mode",
+            "direction": "column",
+            "splitPercentage": 85
+          }
+        }
+      ]
+    },
+    "Plot!ext_arm_l_q": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂跟踪 - 轨迹指令 vs 实际状态",
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[0]",
+          "enabled": true,
+          "label": "zarm_l1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[13]",
+          "enabled": true,
+          "label": "zarm_l1_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[1]",
+          "enabled": true,
+          "label": "zarm_l2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[14]",
+          "enabled": true,
+          "label": "zarm_l2_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[2]",
+          "enabled": true,
+          "label": "zarm_l3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[15]",
+          "enabled": true,
+          "label": "zarm_l3_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[3]",
+          "enabled": true,
+          "label": "zarm_l4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[16]",
+          "enabled": true,
+          "label": "zarm_l4_state"
+        }
+      ]
+    },
+    "Plot!ext_arm_r_q": {
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂跟踪 - 轨迹指令 vs 实际状态",
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[4]",
+          "enabled": true,
+          "label": "zarm_r1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[17]",
+          "enabled": true,
+          "label": "zarm_r1_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[5]",
+          "enabled": true,
+          "label": "zarm_r2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[18]",
+          "enabled": true,
+          "label": "zarm_r2_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[6]",
+          "enabled": true,
+          "label": "zarm_r3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[19]",
+          "enabled": true,
+          "label": "zarm_r3_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.q[7]",
+          "enabled": true,
+          "label": "zarm_r4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.q[20]",
+          "enabled": true,
+          "label": "zarm_r4_state"
+        }
+      ]
+    },
+    "Plot!ext_arm_l_v": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[0]",
+          "enabled": true,
+          "label": "zarm_l1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[13]",
+          "enabled": true,
+          "label": "zarm_l1_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[1]",
+          "enabled": true,
+          "label": "zarm_l2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[14]",
+          "enabled": true,
+          "label": "zarm_l2_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[2]",
+          "enabled": true,
+          "label": "zarm_l3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[15]",
+          "enabled": true,
+          "label": "zarm_l3_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[3]",
+          "enabled": true,
+          "label": "zarm_l4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[16]",
+          "enabled": true,
+          "label": "zarm_l4_state"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂跟踪 - 速度指令 vs 实际状态"
+    },
+    "Plot!ext_arm_r_v": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[4]",
+          "enabled": true,
+          "label": "zarm_r1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[17]",
+          "enabled": true,
+          "label": "zarm_r1_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[5]",
+          "enabled": true,
+          "label": "zarm_r2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[18]",
+          "enabled": true,
+          "label": "zarm_r2_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[6]",
+          "enabled": true,
+          "label": "zarm_r3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[19]",
+          "enabled": true,
+          "label": "zarm_r3_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.v[7]",
+          "enabled": true,
+          "label": "zarm_r4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.v[20]",
+          "enabled": true,
+          "label": "zarm_r4_state"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂跟踪 - 速度指令 vs 实际状态"
+    },
+    "Plot!ext_arm_l_tau": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[0]",
+          "enabled": true,
+          "label": "zarm_l1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[13]",
+          "enabled": true,
+          "label": "zarm_l1_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[1]",
+          "enabled": true,
+          "label": "zarm_l2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[14]",
+          "enabled": true,
+          "label": "zarm_l2_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[2]",
+          "enabled": true,
+          "label": "zarm_l3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[15]",
+          "enabled": true,
+          "label": "zarm_l3_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[3]",
+          "enabled": true,
+          "label": "zarm_l4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[16]",
+          "enabled": true,
+          "label": "zarm_l4_state"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "左臂跟踪 - 力矩指令 vs 实际状态"
+    },
+    "Plot!ext_arm_r_tau": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[4]",
+          "enabled": true,
+          "label": "zarm_r1_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[17]",
+          "enabled": true,
+          "label": "zarm_r1_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[5]",
+          "enabled": true,
+          "label": "zarm_r2_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[18]",
+          "enabled": true,
+          "label": "zarm_r2_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[6]",
+          "enabled": true,
+          "label": "zarm_r3_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[19]",
+          "enabled": true,
+          "label": "zarm_r3_state"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/arm_trajectory.tau[7]",
+          "enabled": true,
+          "label": "zarm_r4_cmd"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/rt/joint_state.tau[20]",
+          "enabled": true,
+          "label": "zarm_r4_state"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "left",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "右臂跟踪 - 力矩指令 vs 实际状态"
+    },
+    "Tab!ext_arm": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "位置",
+          "layout": {
+            "first": "Plot!ext_arm_l_q",
+            "second": {
+              "first": "Plot!ext_arm_r_q",
+              "second": "Plot!amp_arm_mode",
+              "direction": "column",
+              "splitPercentage": 80
+            },
+            "direction": "column",
+            "splitPercentage": 40
+          }
+        },
+        {
+          "title": "速度",
+          "layout": {
+            "first": "Plot!ext_arm_l_v",
+            "second": {
+              "first": "Plot!ext_arm_r_v",
+              "second": "Plot!amp_arm_mode",
+              "direction": "column",
+              "splitPercentage": 80
+            },
+            "direction": "column",
+            "splitPercentage": 40
+          }
+        },
+        {
+          "title": "力矩",
+          "layout": {
+            "first": "Plot!ext_arm_l_tau",
+            "second": {
+              "first": "Plot!ext_arm_r_tau",
+              "second": "Plot!amp_arm_mode",
+              "direction": "column",
+              "splitPercentage": 80
+            },
+            "direction": "column",
+            "splitPercentage": 40
+          }
+        }
+      ]
+    },
+    "Tab!amp": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "指令",
+          "layout": {
+            "first": "Plot!amp_velocity_commands",
+            "second": "Plot!amp_cmd_stance",
+            "direction": "column"
+          }
+        },
+        {
+          "title": "动作输出",
+          "layout": "Plot!amp_actions"
+        }
+      ]
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "layout": "Tab!root"
+}

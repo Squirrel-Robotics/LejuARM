@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>lejusdk-perf-tests</name>
+  <version>0.1.0</version>
+  <description>CycloneDDS 性能测试工具</description>
+
+  <maintainer email="dev@leju.com">Leju Robotics</maintainer>
+  <license>Proprietary</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>lejusdk-dds-idl</depend>
+  <depend>lejusdk-topic-pubsub</depend>
+
+</package>

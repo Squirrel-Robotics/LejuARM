@@ -1,0 +1,6 @@
+{
+  "runs_root": "/media/lsj/EXTERNAL_USB/savedata/roban2-mujoco-sorting/outputs/bag_act40_20261027_v4/heft_full_inference_20261030_v75/runs",
+  "console_root": "/media/lsj/EXTERNAL_USB/Roban-Ubuntu/projects/roban2-visual-console",
+  "observation_url": "http://127.0.0.1:8765",
+  "simulation_scene": "/media/lsj/EXTERNAL_USB/savedata/roban2-mujoco-sorting/outputs/compliant_bags_layout_20261026_v4_3/models/scene_full_body.xml"
+}

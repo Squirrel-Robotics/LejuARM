@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>lejusdk-claw-python</name><version>0.1.0</version>
+  <description>夹爪 Python 与 WebSocket 共用的 DDS SDK 适配。</description>
+  <maintainer email="edu@lejurobot.com">Leju Robotics</maintainer>
+  <license>Proprietary</license><buildtool_depend>catkin</buildtool_depend>
+  <depend>lejusdk-lowlevel</depend>
+  <depend>lejusdk-utils</depend>
+</package>

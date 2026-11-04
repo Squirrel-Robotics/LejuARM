@@ -1,0 +1,6 @@
+{
+  "runs_root": "../../runtime-data/inference-runs",
+  "console_root": "../roban2-visual-console",
+  "observation_url": "http://127.0.0.1:8765",
+  "simulation_scene": "assets/scene_full_body.xml"
+}

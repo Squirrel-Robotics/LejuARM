@@ -1,0 +1,22 @@
+<launch>
+  <!-- Read-only RGB-D acquisition in an isolated namespace. -->
+  <include file="$(find orbbec_camera)/launch/gemini_330_series.launch">
+    <arg name="camera_name" value="roban2_stage0_camera" />
+    <arg name="publish_tf" value="false" />
+    <arg name="enumerate_net_device" value="false" />
+    <arg name="enable_point_cloud" value="false" />
+    <arg name="enable_colored_point_cloud" value="false" />
+    <arg name="enable_frame_sync" value="true" />
+    <!-- Host frame timestamps avoid invalid zero global timestamps after boot. -->
+    <arg name="time_domain" value="system" />
+    <arg name="depth_registration" value="true" />
+    <arg name="align_mode" value="SW" />
+    <arg name="align_target_stream" value="COLOR" />
+    <arg name="color_width" value="640" />
+    <arg name="color_height" value="480" />
+    <arg name="color_fps" value="60" />
+    <arg name="depth_width" value="640" />
+    <arg name="depth_height" value="480" />
+    <arg name="depth_fps" value="60" />
+  </include>
+</launch>

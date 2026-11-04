@@ -1,0 +1,64 @@
+# DDS Recorder Configuration Example
+# Copy this file and modify as needed
+
+# DDS Configuration
+dds:
+  domain_id: 0
+  discovery_timeout: 10.0  # seconds
+
+  # Topic filtering (regex supported when use_regex: true, empty = record all)
+  use_regex: true
+  topics:
+    - "/rt/imu_state"
+    - "/rt/joint_state"
+    - "/rt/joint_cmd"
+    - "/rt/hand_cmd"
+    - "/rt/hand_state"
+    - "/rt/motor_state"    # 电机层原始反馈（pre-c2t, pre-ankle-inv）
+    - "/rt/motor_cmd"      # 电机层最终命令（post-ankle-fwd, post-c2t/A）
+    - "/rt/joy"
+    - "/rt/hardware/state"
+    - "/rt/hardware/stop"
+    - "/rt/fall_stand_state"
+    - "/rt/fall_stand_command"
+    - "/rt/micphone_data"   # 麦克风音频流（AudioReceiverData, leju-audio 采集）
+    - "/monitor/.*"         # 系统监控（CPU 使用率/温度/频率、内存、RL 线程核心, leju-monitor 5Hz）
+    # 控制器观测数据（匹配所有控制器名称）
+    - "/.*/obs/.*"
+    - "/.*/observations"
+    - "/.*/q_target"
+    - "/.*/motion_frame"
+    - "/.*/policy_inference_frequency_hz"
+    - "/.*/velocity_cmd_to_policy"
+    - "/rl_controller/heft/.*"
+    - "/rt/pico/heft_reference"
+    - "/rt/pico/bone_poses"
+
+# Output Configuration
+output:
+  prefix: "recording"          # File name prefix
+  append_date: true       # Append date-time to filename
+  max_file_size: 500      # MB, 0 = unlimited (kuavo default: 500)
+  max_duration: 0           # seconds, 0 = unlimited
+  split: true               # Enable file splitting on size/duration limit
+  max_splits: 8             # Max split files to keep (0 = unlimited)
+  min_space: 1024           # MB, minimum free disk space to continue recording
+  buffer_size: 1            # MB
+
+  compression:
+    enabled: true
+    type: "zstd"          # zstd, lz4, or none
+    level: 3              # 1-19 for zstd, 1-12 for lz4
+
+# Timing Configuration
+timing:
+  use_sim_time: false
+  start_immediately: true
+  # start_trigger_topic: "/start_recording"
+
+# Logging Configuration
+logging:
+  level: "info"           # trace, debug, info, warning, error, critical
+  console: true
+  file_enabled: false
+  file_path: "recorder.log"

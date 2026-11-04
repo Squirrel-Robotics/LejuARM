@@ -1,0 +1,1 @@
+{"name":"roban2-visual-console","version":"1.0.0","private":true,"description":"Local and LAN Roban-2 observation dashboard","type":"module","dependencies":{"three":"0.180.0"}}

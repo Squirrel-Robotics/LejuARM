@@ -1,0 +1,33 @@
+# Doxyfile for LejuSDK
+# 用于生成 API 文档的 XML 配置
+
+PROJECT_NAME           = "LejuSDK"
+PROJECT_BRIEF          = "Leju Robot SDK"
+OUTPUT_DIRECTORY       = output
+OUTPUT_LANGUAGE        = Chinese
+
+# TODO: 新增模块时，在此添加对应的头文件路径
+# 示例（如需新增 lejusdk-highlevel 模块）:
+#   INPUT = ../lejusdk-lowlevel/include \
+#           ../lejusdk-utils/include \
+#           ../lejusdk-highlevel/include
+INPUT                  = ../lejusdk-lowlevel/include \
+                         ../lejusdk-utils/include \
+                         ../lejusdk-vr/include
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h *.hpp
+
+GENERATE_HTML          = NO
+GENERATE_LATEX         = NO
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+BUILTIN_STL_SUPPORT    = YES
+
+QUIET                  = YES
+WARNINGS               = YES

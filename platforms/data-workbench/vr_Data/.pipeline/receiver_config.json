@@ -1,0 +1,24 @@
+{
+  "destination": "/media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data",
+  "ssh_host": "roban-lower",
+  "ssh_options": [
+    "-T",
+    "-o",
+    "HostName=192.168.110.84",
+    "-o",
+    "HostKeyAlias=roban-lower.local",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=5",
+    "-o",
+    "ServerAliveInterval=5",
+    "-o",
+    "ServerAliveCountMax=3"
+  ],
+  "remote_helper": "/home/lab/yss/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py",
+  "remote_root": "/home/lab/.cache/lejulab/vr_transfer",
+  "poll_seconds": 5
+}

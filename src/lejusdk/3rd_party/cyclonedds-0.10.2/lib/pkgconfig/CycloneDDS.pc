@@ -1,0 +1,9 @@
+prefix=/home/ohh/workspace/leju_ws/lejulab-platform_ws/fix-cyclonedds-shared-lib/src/lejusdk/3rd_party/cyclonedds-0.10.2
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: CycloneDDS
+Description: Eclipse Cyclone DDS library
+Version: 0.10.2
+Libs: -L${libdir} -lddsc
+Cflags: -I${includedir}

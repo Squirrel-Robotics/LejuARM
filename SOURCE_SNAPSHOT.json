@@ -1,0 +1,93 @@
+{
+  "snapshot_date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "type": "current-files-with-uncommitted-changes",
+  "upstream_history_included": false,
+  "lower_sources": [
+    {
+      "source": "/home/lab/Lejulab_ARM",
+      "upstream": "https://gitcode.com/OpenLET/Lejulab_ARM.git",
+      "base_commit": "22be3dce56bc633d84a26b2ff353dcb733bbaf9e",
+      "branch": "opensource/competition/3d-vr-support",
+      "working_tree_modified": true,
+      "critical_file_sha256": {
+        "src/leju_launch/scripts/launch_real.sh": "427c624cae1b6638fa1f921716ab743cdbc10372058a13506f16b93d8c75779c",
+        "src/leju_launch/scripts/vr_mcap_recorder.py": "0a39801639f5d2f39b21d0338ec4db3dc27f3cd62dd0bcf9547bc41ae403ce6f",
+        "src/leju_launch/scripts/vr_fixed_rate_alignment.py": "72103c984bb83fc437107ae3189663e2032bc0850eeda39c55b04df0b5d9457e",
+        "src/leju_launch/scripts/dds_heft_external_control.py": "6d32e72b08dc8f5a14a2a2bcf55556333e51531c8b42fd10aed8c590301140d7",
+        "src/leju-controllers/leju-rl-controller/config/17/controller_manager.yaml": "16cbd7ae7de8aaf9b02df623f97594256d724e8aa937cb5b2f31420cc8e4050b",
+        "src/leju_pico_gmr/leju_pico_gmr/main.py": "c76102e4cb103b7b8228e80a6298dd55ca06c27ea6b420c687553b434243e2c6"
+      },
+      "archive_path": "."
+    },
+    {
+      "source": "/home/lab/yss/Lejulab_ARM",
+      "upstream": "https://gitcode.com/OpenLET/Lejulab_ARM.git",
+      "base_commit": "abc9a825b258ee76eac9a0a44a31a4546d8b6c77",
+      "branch": "beta",
+      "working_tree_modified": true,
+      "critical_file_sha256": {
+        "src/leju_launch/scripts/launch_real.sh": "427c624cae1b6638fa1f921716ab743cdbc10372058a13506f16b93d8c75779c",
+        "src/leju_launch/scripts/vr_mcap_recorder.py": "0a39801639f5d2f39b21d0338ec4db3dc27f3cd62dd0bcf9547bc41ae403ce6f",
+        "src/leju_launch/scripts/vr_fixed_rate_alignment.py": "72103c984bb83fc437107ae3189663e2032bc0850eeda39c55b04df0b5d9457e",
+        "src/leju_launch/scripts/dds_heft_external_control.py": "2f56eede5da5ad6ac584f67df6d0175968ef8da4938a48794e15f8bff4e1ea12",
+        "src/leju-controllers/leju-rl-controller/config/17/controller_manager.yaml": "16cbd7ae7de8aaf9b02df623f97594256d724e8aa937cb5b2f31420cc8e4050b",
+        "src/leju_pico_gmr/leju_pico_gmr/main.py": "c76102e4cb103b7b8228e80a6298dd55ca06c27ea6b420c687553b434243e2c6"
+      },
+      "archive_path": "variants/yss/Lejulab_ARM"
+    }
+  ],
+  "workstation_source": "/media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data/.pipeline",
+  "upper_source": "roban-upper:/home/leju_kuavo/vr_vision_recorder",
+  "excluded": [
+    "git history",
+    "recorded keyboard_ctrl CSV",
+    "MCAP and recorded video",
+    "validation output",
+    "build/cache directories",
+    "temporary backups",
+    "credentials/private keys",
+    "installed Python dependencies",
+    "head_sdk_pose/runs"
+  ],
+  "colleague_platforms": {
+    "host": "192.168.110.41",
+    "ports": [
+      8765,
+      8766
+    ],
+    "source_status": "included",
+    "sources": [
+      {
+        "source": "/media/lsj/EXTERNAL_USB/Roban-Ubuntu/projects/roban2-visual-console",
+        "archive_path": "platforms/roban2-visual-console",
+        "critical_file_sha256": {
+          "server.py": "fe70732f1d1024887831ffb8135cf4820c3794db63073f13dcee7b139773f512",
+          "run.sh": "d9e6a8fa6f49b8bf98fe0eb21cc36deb454f0075cade8e47d92fe11cb62e5476",
+          "config.json": "d40996d82c71b03ed3ee0cf786a03b40000339ac60a2e53fce447b761009d8f5",
+          "README.md": "fa913b72bb1cff9754ecdc0fcfab59e3c8d4eb15e563fd495e9949ba30393672",
+          "requirements.lock.txt": "aa81d90f542db6a89719ddab95df892542682e4efaa043d802250f6aff9916f6",
+          "package-lock.json": "a33fb890a1e6592d324766c8f6e42d2de7f761cb0d8e1bf31939a86844de4a85"
+        }
+      },
+      {
+        "source": "/media/lsj/EXTERNAL_USB/Roban-Ubuntu/projects/roban2-inference-compare",
+        "archive_path": "platforms/roban2-inference-compare",
+        "critical_file_sha256": {
+          "server.py": "030739fd8219ceb5d70a40ca4c85aff3dfa3107465ae6a4f9abcea42e2ca3f87",
+          "run.sh": "766ef3537f9d57c9ef477c1ef2890470745ed992a140f098f7d41e55080f76fe",
+          "config.json": "1f3f0f562341b78846905986d1fcbdc5e02b908d98eb25b5c8727bf1db609f01",
+          "README.md": "bf0a9785d4c9566f21c9227f9e04086b03409573c2fe97085e6f921b88a2fa52",
+          "data.py": "a1f52409f99fba8dce7cc33ef29fe445323cd93c195b935848fab0a1d3e81c8c",
+          "service.py": "6393dd709b4ee83c4b5c6c9ff8a585c261a4f917ebc913f3ce65fb3650d08f2f"
+        }
+      }
+    ],
+    "runtime_state_and_recordings_included": false
+  },
+  "additional_asset": {
+    "source": "/media/lsj/EXTERNAL_USB/savedata/roban2-mujoco-sorting/outputs/compliant_bags_layout_20261026_v4_3/models/scene_full_body.xml",
+    "archive_path": "platforms/roban2-inference-compare/assets/scene_full_body.xml",
+    "purpose": "XML parsed by the comparison viewer for static workcell boxes; external MuJoCo mesh dependencies are not needed by this viewer"
+  }
+}

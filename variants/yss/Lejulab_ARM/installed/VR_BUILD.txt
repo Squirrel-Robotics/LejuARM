@@ -1,0 +1,3 @@
+BUILD_VR_CONTROL=ON
+DRAKE_PREFIX=/opt/drake
+TARGETS=quest_udp_to_dds_node,quest_vr_control_node,quest_vr_abs_control_node,libleju-ik.so

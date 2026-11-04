@@ -1,0 +1,12 @@
+{
+  "three_version": "0.186.1",
+  "package": "https://registry.npmjs.org/three/-/three-0.186.1.tgz",
+  "integrity": "sha512-blFeqb49wRCSGUGj7gtpfnSGHy2lwDk94RhUmS1c/hTby70kvChbWpkJ4Pm1390LqzzvTmzgXKHPEafJwCb8jA==",
+  "local_files": {
+    "three.module.js": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea",
+    "three.core.js": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6",
+    "OrbitControls.js": "30386f7141d5ce5d5e0a3ab643e4eb16265f4564466108105ce449857f62fdda",
+    "STLLoader.js": "661fdded4c418b732663f0460a4dd2f189d054f783e0c071e4f4612aa086ee21",
+    "three-LICENSE.txt": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+  }
+}

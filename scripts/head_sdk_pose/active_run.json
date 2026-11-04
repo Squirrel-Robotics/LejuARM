@@ -1,0 +1,16 @@
+{
+  "pid": 14745,
+  "started_at": 1792548977.3253753,
+  "command": [
+    "bash",
+    "/home/lab/Lejulab_ARM/scripts/head_sdk_pose/head_sdk_pose.sh",
+    "--execute",
+    "--pitch-deg",
+    "35",
+    "--hold-seconds",
+    "0"
+  ],
+  "run_dir": "/home/lab/Lejulab_ARM/scripts/head_sdk_pose/runs/20261021_101617",
+  "scope": "head_only",
+  "automatic_restart": false
+}

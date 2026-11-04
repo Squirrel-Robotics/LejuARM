@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lejusdk-claw"
+version = "0.1.0"
+description = "Leju claw Python and WebSocket API over the platform DDS SDK"
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+websocket = ["websockets>=12,<14"]
+
+[tool.setuptools.packages.find]
+where = ["python"]

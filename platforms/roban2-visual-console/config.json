@@ -1,0 +1,20 @@
+{
+  "listen": "0.0.0.0",
+  "port": 8765,
+  "lower_host": "lab@roban-lower.local",
+  "upper_host": "leju_kuavo@192.168.26.12",
+  "upper_host_key_alias": "roban-upper.local",
+  "upper_via_lower": true,
+  "ros_setup": "/opt/ros/noetic/setup.bash",
+  "camera_workspace": "/home/leju_kuavo/ros_ws/devel/setup.bash",
+  "color_topic": "/roban2_stage0_camera/color/image_raw",
+  "depth_topic": "/roban2_stage0_camera/depth/image_raw",
+  "camera_info_topic": "/roban2_stage0_camera/color/camera_info",
+  "camera_fps": 60,
+  "jpeg_quality": 78,
+  "joint_hz": 25,
+  "joint_stale_ms": 250,
+  "camera_stale_ms": 1500,
+  "record_limit_mb": 200,
+  "record_limit_seconds": 1800
+}

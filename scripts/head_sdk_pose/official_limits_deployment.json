@@ -1,0 +1,29 @@
+{
+  "deployed_at": "2026-10-21T14:39:13.517133+08:00",
+  "target": "/home/lab/Lejulab_ARM/scripts/head_sdk_pose",
+  "staging_dir": "/home/lab/Lejulab_ARM/scripts/.head_range_stage.Nyw051",
+  "backup_dir": "/home/lab/Lejulab_ARM/scripts/head_sdk_pose/backups/before_official_limits_20261021_143913_498499",
+  "pitch_deg": [
+    -20,
+    45
+  ],
+  "yaw_deg": [
+    -90,
+    90
+  ],
+  "default_pitch_deg": 35,
+  "native_tests_passed": 22,
+  "native_guard_checked_without_sdk_init": true,
+  "motion_started_by_update": false,
+  "active_head_pids_at_install": [],
+  "sha256": {
+    "head_sdk_pose.py": "efaae2b3868928b76adb56520be552e8dc37299e2e20739fb285bd663cf50763",
+    "head_sdk_pose.sh": "469293a0b7cd9e2b4bf9058d2c946b321919dbd8b5aaefba23b6989e546aaaf6",
+    "head_legacy_sdk.cpp": "d2794d0deac8562f39d8f9368ab78348b120c3b2e66f40325f9b7365e0e61778",
+    "test_head_sdk_pose.py": "86438531fd9b2ec82ad637865ac5b6688e9f49938f96a88ca5ba1bf5605ff1c8",
+    "使用说明.md": "ae2154ea327e2c1471199c501bb66df25be3d0fde55cb38f1b0a191ac3ad5de1",
+    "reference/dds_leju_types.py": "072f1939f5d71a0d78c86519e8fd87c4de24ccc7b52a3ad9bd190e4684d99738",
+    "reference/dds_heft_controller_observer.py": "104af974f61d0bffa353ceff20a24d185398accd508069f99931e0a0b3254e89",
+    "build/aarch64/head_legacy_sdk_cli": "49221e3f8ff88c1966ea1d00eb16f03f55463bcff1579711c66e5b6e6a7d46fa"
+  }
+}

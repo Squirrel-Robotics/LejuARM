@@ -1,0 +1,27 @@
+# 腰部独立测试（有吊架支撑）：其余22个本体关节保持启动姿态。
+# 腰部仅 1 个可动关节 waist_yaw_joint yaw，单位 deg。
+# 移动到指定绝对目标，保持，然后回到启动位姿。
+# 程序校验 URDF 硬限位 [-150, 150] deg。
+# target_deg 使用 External/policy 坐标。当前 AMP joint_direction=-1，
+# 因此 target_deg:[60] 对应 SDK 腰绝对目标 -60 deg；程序会自动换算起点。
+target_deg: [60]
+# 若需相对步进，删除 target_deg，改为 delta_deg: [60]（单次最多60 deg）。
+
+# 从 manager 中读取 AMP 模型、关节映射和增益，生成本次固定姿态配置。
+# 专用控制器 action_scale 全零，关闭 AMP 增强，双臂 KeepPose、腰 External。
+# 默认运行会注册并切到专用控制器；preflight/inspect 不做这些操作。
+controller_manager_config: src/leju-controllers/leju-rl-controller/config/17/controller_manager.yaml
+# 正常结束回到腰起点并保持 KeepPose；异常停止轨迹、不强行回程。
+# 均保留固定控制器，不自动切回 AMP。manager 注册后恢复原文。
+
+move_sec: 7.0
+# 当前位姿到目标需要更长时间时，程序自动延长以满足15 deg/s限速。
+hold_ms: 2000
+skip_ms: 700
+settle_ms: 1000
+rate_hz: 100
+max_velocity_deg_s: 15
+feedback_timeout_ms: 500
+max_tracking_error_deg: 15
+# 保持段目标验收及回程容差；非零步进还取 min(此值, |步进|/2)，防止未运动误报成功。
+target_tolerance_deg: 2
