@@ -19,22 +19,6 @@
         "src/leju_pico_gmr/leju_pico_gmr/main.py": "c76102e4cb103b7b8228e80a6298dd55ca06c27ea6b420c687553b434243e2c6"
       },
       "archive_path": "."
-    },
-    {
-      "source": "/home/lab/yss/Lejulab_ARM",
-      "upstream": "https://gitcode.com/OpenLET/Lejulab_ARM.git",
-      "base_commit": "abc9a825b258ee76eac9a0a44a31a4546d8b6c77",
-      "branch": "beta",
-      "working_tree_modified": true,
-      "critical_file_sha256": {
-        "src/leju_launch/scripts/launch_real.sh": "427c624cae1b6638fa1f921716ab743cdbc10372058a13506f16b93d8c75779c",
-        "src/leju_launch/scripts/vr_mcap_recorder.py": "0a39801639f5d2f39b21d0338ec4db3dc27f3cd62dd0bcf9547bc41ae403ce6f",
-        "src/leju_launch/scripts/vr_fixed_rate_alignment.py": "72103c984bb83fc437107ae3189663e2032bc0850eeda39c55b04df0b5d9457e",
-        "src/leju_launch/scripts/dds_heft_external_control.py": "2f56eede5da5ad6ac584f67df6d0175968ef8da4938a48794e15f8bff4e1ea12",
-        "src/leju-controllers/leju-rl-controller/config/17/controller_manager.yaml": "16cbd7ae7de8aaf9b02df623f97594256d724e8aa937cb5b2f31420cc8e4050b",
-        "src/leju_pico_gmr/leju_pico_gmr/main.py": "c76102e4cb103b7b8228e80a6298dd55ca06c27ea6b420c687553b434243e2c6"
-      },
-      "archive_path": "variants/yss/Lejulab_ARM"
     }
   ],
   "workstation_source": "/media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data/.pipeline",
@@ -89,5 +73,8 @@
     "source": "/media/lsj/EXTERNAL_USB/savedata/roban2-mujoco-sorting/outputs/compliant_bags_layout_20261026_v4_3/models/scene_full_body.xml",
     "archive_path": "platforms/roban2-inference-compare/assets/scene_full_body.xml",
     "purpose": "XML parsed by the comparison viewer for static workcell boxes; external MuJoCo mesh dependencies are not needed by this viewer"
-  }
+  },
+  "receiver_config_sha256": "a0bd40b28a342c788c692a4f3484607afc8a54fe69af89e7c4f3c6224773144e",
+  "receiver_helper": "/home/lab/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py",
+  "configuration_update_date": "2026-11-04"
 }

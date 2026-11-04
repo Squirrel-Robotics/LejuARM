@@ -1,7 +1,0 @@
-syntax = "proto3";
-package protos;
-
-message RobotDescription {
-  string robot_name = 1;
-  int32 robot_version = 2;
-}

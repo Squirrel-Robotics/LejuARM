@@ -1,4 +1,4 @@
-> **2026-11-04 部署快照：** [归档总览与三个平台说明](README_GITHUB.md)。当前数采使用的下位机版本另存于 `variants/yss/Lejulab_ARM/`。
+> **2026-11-04 部署快照：** [归档总览与三个平台说明](README_GITHUB.md)。当前数采使用 `/home/lab/Lejulab_ARM`，对应本仓库根目录。
 
 # LejuLab-Platform
 

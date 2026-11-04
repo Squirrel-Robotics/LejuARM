@@ -9,7 +9,6 @@
 | 仓库路径 | 来源 / 用途 |
 | --- | --- |
 | 根目录 `src/`、`installed/`、`config/`、`scripts/` 等 | 下位机 `/home/lab/Lejulab_ARM` 主目录 |
-| `variants/yss/Lejulab_ARM/` | 下位机 `/home/lab/yss/Lejulab_ARM`，当前数采平台连接的版本 |
 | `platforms/data-workbench/vr_Data/.pipeline/` | 本机 8877 数采、处理、增强平台的当前代码、模型、依赖和接收配置 |
 | `platforms/roban2-visual-console/` | 同事电脑 8765 状态监测平台，含后端、前端、模型和依赖锁文件 |
 | `platforms/roban2-inference-compare/` | 同事电脑 8766 对比平台，含后端、前端、启动脚本和场景 XML |
@@ -30,7 +29,7 @@ GitHub 保存代码和版本。以上服务仍在原电脑运行；上传不会�
 ## 恢复与迁移
 
 下位机主版本按原项目 README 构建；`installed/` 中存在上游提供的 ARM 预编译核心库，
-因此保留这些运行依赖。当前数采实际使用 `variants/yss/Lejulab_ARM/`，不要将两个版本混合覆盖。
+因此保留这些运行依赖。当前数采连接 `/home/lab/Lejulab_ARM`，对应本仓库根目录。
 
 数采平台的恢复说明见 [platforms/data-workbench/README.md](platforms/data-workbench/README.md)。
 `deploy/current/` 和 `receiver_config.json` 记录当前部署路径及局域网地址；迁移电脑时需按实际环境调整。

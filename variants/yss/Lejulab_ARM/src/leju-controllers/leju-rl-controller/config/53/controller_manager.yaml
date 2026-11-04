@@ -1,8 +1,0 @@
-loop_dt: 0.001
-default_controller: "amp"
-
-controllers:
-  - name: "amp"
-    type: "GenericRLController"
-    config: "config_amp.yaml"
-    enabled: true

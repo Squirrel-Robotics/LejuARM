@@ -25,7 +25,7 @@
    ```
 
 4. 修改 `receiver_config.json` 的 `destination`、SSH 主机/地址、下位机 `remote_helper` 和缓存目录。
-   当前 `remote_helper` 使用 `/home/lab/yss/Lejulab_ARM/...`，对应本仓库 `variants/yss/Lejulab_ARM/`。
+   当前 `remote_helper` 使用 `/home/lab/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py`，对应本仓库根目录下的同名脚本。
 5. 用自己的 SSH 连接配置和已核验主机密钥连接机器人；私钥单独配置。
 6. 根据实际路径修改两个服务文件的 `WorkingDirectory`、`ExecStart`、PATH 及网页 `--allow-host`。
    复制到 `~/.config/systemd/user/` 后，可按部署需要执行 `systemctl --user daemon-reload` 与启用服务。

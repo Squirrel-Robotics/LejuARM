@@ -18,7 +18,7 @@
     "-o",
     "ServerAliveCountMax=3"
   ],
-  "remote_helper": "/home/lab/yss/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py",
+  "remote_helper": "/home/lab/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py",
   "remote_root": "/home/lab/.cache/lejulab/vr_transfer",
   "poll_seconds": 5
 }
