@@ -7,11 +7,15 @@
 2026-11-05 更新：补齐主目录中的 CAN/串口通信探测模块及状态探测接入，详见
 [通信探测说明](docs/interfaces/communication_monitoring.md)。
 
+2026-11-05 后续更新：基础通信库同步到上游 build `20261105.1272`，并加入
+[ACT / HEFT 下位机中继组件](integrations/act_heft_relay/README.md)。
+
 ## 目录与实际部署
 
 | 仓库路径 | 来源 / 用途 |
 | --- | --- |
 | 根目录 `src/`、`installed/`、`config/`、`scripts/` 等 | 下位机 `/home/lab/Lejulab_ARM` 主目录 |
+| `integrations/act_heft_relay/` | 下位机当前 v75 ACT / HEFT 中继、执行、保护和部署配置 |
 | `platforms/data-workbench/vr_Data/.pipeline/` | 本机 8877 数采、处理、增强平台的当前代码、模型、依赖和接收配置 |
 | `platforms/roban2-visual-console/` | 同事电脑 8765 状态监测平台，含后端、前端、模型和依赖锁文件 |
 | `platforms/roban2-inference-compare/` | 同事电脑 8766 对比平台，含后端、前端、启动脚本和场景 XML |

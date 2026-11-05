@@ -7,7 +7,7 @@
     {
       "source": "/home/lab/Lejulab_ARM",
       "upstream": "https://gitcode.com/OpenLET/Lejulab_ARM.git",
-      "base_commit": "22be3dce56bc633d84a26b2ff353dcb733bbaf9e",
+      "base_commit": "764ab7d8a5db7edc50bbb03e0414521bf978ddd9",
       "branch": "opensource/competition/3d-vr-support",
       "working_tree_modified": true,
       "critical_file_sha256": {
@@ -18,9 +18,13 @@
         "src/leju-controllers/leju-rl-controller/config/17/controller_manager.yaml": "16cbd7ae7de8aaf9b02df623f97594256d724e8aa937cb5b2f31420cc8e4050b",
         "src/leju_pico_gmr/leju_pico_gmr/main.py": "c76102e4cb103b7b8228e80a6298dd55ca06c27ea6b420c687553b434243e2c6",
         "src/leju_launch/scripts/vr_communication_probe.py": "11bfc7493ddf4063191543a322914827c3770f139ba7cae5b0936fecee7acbb3",
-        "src/leju_launch/scripts/vr_dashboard_probe.py": "18556ad6b73d04a9b63b83e6f26ea0f2ffe33eb34a98e19425dcd7a1ea311335"
+        "src/leju_launch/scripts/vr_dashboard_probe.py": "18556ad6b73d04a9b63b83e6f26ea0f2ffe33eb34a98e19425dcd7a1ea311335",
+        "VERSION": "0d3a1728f84504f32ecd516c539612e205b87e61d79333c6e8db5844a15cce13",
+        "installed/lib/libcanbus_sdk.so": "eeb7b5e2a1c84379569cce3767d5bbc36a3941cecf07c837d955291a0fdc1e90",
+        "installed/lib/libmotorevo_controller.so": "a6b4aaed831130173af666e892d981195048b75b639d60f5f2facd59a93ea758"
       },
-      "archive_path": "."
+      "archive_path": ".",
+      "upstream_version": "upstream-commit: 48123354a8b170107dcd38cbce63ae2daf237901\nupstream-describe: 1.5.2-119-g48123354\nbuild-id: 20261105.1272\nbuild-time: 2026-11-05T07:23:25+00:00\n"
     }
   ],
   "workstation_source": "/media/yulinxie/EXTERNAL_USB/ROBAN/vr_Data/.pipeline",
@@ -89,6 +93,34 @@
         "src/leju_launch/scripts/vr_dashboard_probe.py": "18556ad6b73d04a9b63b83e6f26ea0f2ffe33eb34a98e19425dcd7a1ea311335"
       },
       "source": "2026-11-05 deployed communication feedback repair"
+    },
+    {
+      "date": "2026-11-05",
+      "description": "Synchronize upstream CAN libraries and archive current lower-computer ACT relay",
+      "primary_git_head": "764ab7d8a5db7edc50bbb03e0414521bf978ddd9",
+      "primary_content_updates": [
+        "VERSION",
+        "installed/lib/libcanbus_sdk.so",
+        "installed/lib/libmotorevo_controller.so"
+      ],
+      "primary_mode_updates": [
+        "src/leju_launch/scripts/vr_communication_probe.py"
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "source": "/home/lab/roban2_act_integration/heft_full_inference_20261030_v75",
+      "archive_path": "integrations/act_heft_relay",
+      "file_sha256": {
+        "command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "execution_core.py": "c0a342112aff9b33042c03e8f7cf5ea3d2f472a789853cbe476be979df2a1e21",
+        "config.json": "0530a73e02b0a1f4f508a3e18a25194c8ca8ea3e0c70f94d5c64fd256ea29bb5",
+        "can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "robot_relay.py": "007f891ee44e401c596833e4c5b5274bb9a1a1462c98409d65624e9f7ed90341",
+        "relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5"
+      },
+      "external_model_and_inference_client_included": false
     }
   ]
 }
