@@ -4,6 +4,9 @@
 原项目说明仍见 [README.md](README.md)、[README_DEPLOY.md](README_DEPLOY.md) 和
 [README_HEFT.md](README_HEFT.md)。快照来源与版本见 [SOURCE_SNAPSHOT.json](SOURCE_SNAPSHOT.json)。
 
+2026-11-05 更新：补齐主目录中的 CAN/串口通信探测模块及状态探测接入，详见
+[通信探测说明](docs/interfaces/communication_monitoring.md)。
+
 ## 目录与实际部署
 
 | 仓库路径 | 来源 / 用途 |

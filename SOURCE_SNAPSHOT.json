@@ -16,7 +16,9 @@
         "src/leju_launch/scripts/vr_fixed_rate_alignment.py": "72103c984bb83fc437107ae3189663e2032bc0850eeda39c55b04df0b5d9457e",
         "src/leju_launch/scripts/dds_heft_external_control.py": "6d32e72b08dc8f5a14a2a2bcf55556333e51531c8b42fd10aed8c590301140d7",
         "src/leju-controllers/leju-rl-controller/config/17/controller_manager.yaml": "16cbd7ae7de8aaf9b02df623f97594256d724e8aa937cb5b2f31420cc8e4050b",
-        "src/leju_pico_gmr/leju_pico_gmr/main.py": "c76102e4cb103b7b8228e80a6298dd55ca06c27ea6b420c687553b434243e2c6"
+        "src/leju_pico_gmr/leju_pico_gmr/main.py": "c76102e4cb103b7b8228e80a6298dd55ca06c27ea6b420c687553b434243e2c6",
+        "src/leju_launch/scripts/vr_communication_probe.py": "11bfc7493ddf4063191543a322914827c3770f139ba7cae5b0936fecee7acbb3",
+        "src/leju_launch/scripts/vr_dashboard_probe.py": "18556ad6b73d04a9b63b83e6f26ea0f2ffe33eb34a98e19425dcd7a1ea311335"
       },
       "archive_path": "."
     }
@@ -76,5 +78,17 @@
   },
   "receiver_config_sha256": "a0bd40b28a342c788c692a4f3484607afc8a54fe69af89e7c4f3c6224773144e",
   "receiver_helper": "/home/lab/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py",
-  "configuration_update_date": "2026-11-04"
+  "configuration_update_date": "2026-11-04",
+  "latest_update_date": "2026-11-05",
+  "code_updates": [
+    {
+      "date": "2026-11-05",
+      "description": "Restore read-only CAN and serial communication probing in the primary lower-computer project",
+      "file_sha256": {
+        "src/leju_launch/scripts/vr_communication_probe.py": "11bfc7493ddf4063191543a322914827c3770f139ba7cae5b0936fecee7acbb3",
+        "src/leju_launch/scripts/vr_dashboard_probe.py": "18556ad6b73d04a9b63b83e6f26ea0f2ffe33eb34a98e19425dcd7a1ea311335"
+      },
+      "source": "2026-11-05 deployed communication feedback repair"
+    }
+  ]
 }

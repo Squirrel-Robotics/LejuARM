@@ -7,6 +7,7 @@ import re
 import shutil
 import time
 from vr_cache_cleanup import eligibility, pending_deletions
+from vr_communication_probe import snapshot as communication_snapshot
 
 CACHE = Path('/home/lab/.cache/lejulab/vr_transfer')
 SESSION = re.compile(r'\d{4}_\d{2}_\d{2}_\d{2}_\d{2}(?:_\d{2,})?\Z')
@@ -74,9 +75,13 @@ def snapshot(cache=CACHE):
             pending = [x for x in pending if x.get('recording_id') != job.get('recording_id')]
             pending.append(dict(previous, **job))
         cache_media = sum(1 for pattern in ['*.mcap', '*.mp4'] for p in cache.rglob(pattern) if p.is_file())
+    try:
+        communication = communication_snapshot(processes['hardware'])
+    except Exception as exc:
+        communication = {'available': False, 'errors': ['通信接口探测失败：'+str(exc)[:180]]}
     disk = shutil.disk_usage(cache if cache.exists() else cache.parent.parent)
     return {'schema_version': 1, 'now_ns': now, 'listener_live': listener_live,
-            'status': status, 'processes': processes, 'pending_sessions': pending,
+            'status': status, 'processes': processes, 'communication': communication, 'pending_sessions': pending,
             'cache_media_files': cache_media, 'disk': {'free': disk.free, 'total': disk.total}}
 
 
