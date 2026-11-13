@@ -1,0 +1,22 @@
+[Unit]
+Description=Roban2 hold-to-jog arm buttons
+After=network.target lejulab_joy_monitor.service
+
+[Service]
+Type=simple
+User=lab
+Group=lab
+WorkingDirectory=/home/lab/roban2-gamepad
+Environment=ROBOT_VERSION=17
+Environment=CYCLONEDDS_URI=file:///home/lab/roban2-gamepad/dds-network.xml
+Environment=LD_LIBRARY_PATH=/home/lab/Lejulab_ARM/installed/lib
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/lab/roban2-gamepad/roban_arm_jog --execute
+Restart=on-failure
+RestartSec=2
+KillMode=control-group
+TimeoutStopSec=5
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

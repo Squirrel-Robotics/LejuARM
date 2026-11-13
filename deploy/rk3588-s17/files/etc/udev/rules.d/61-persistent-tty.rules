@@ -1,0 +1,7 @@
+## for TER30R-A2
+## How to get the tty udev rule configs: udevadm info --query=all --name=/dev/ttyTHS1
+
+SUBSYSTEM=="tty", KERNELS=="feb60000.serial", SYMLINK+="serial_com1", MODE="0666"
+SUBSYSTEM=="tty", KERNELS=="feb70000.serial", SYMLINK+="serial_com2", MODE="0666"
+SUBSYSTEM=="tty", KERNELS=="feb80000.serial", SYMLINK+="serial_com3", MODE="0666"
+SUBSYSTEM=="tty", KERNELS=="febb0000.serial", SYMLINK+="serial_com4", MODE="0666"

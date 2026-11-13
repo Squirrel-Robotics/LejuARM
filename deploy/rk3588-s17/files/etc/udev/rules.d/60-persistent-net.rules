@@ -1,0 +1,13 @@
+## for TER30R-A2
+## How to get the iface udev rule configs: ethtool -i <net interface name>
+
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="fe170000.pcie", NAME="lan1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="fe1b0000.ethernet", NAME="lan2"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0003:33:00.0", NAME="lan3"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0003:34:00.0", NAME="lan4"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="0003:35:00.0", NAME="lan5"
+
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="spi0.0", NAME="bcan2"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="spi1.0", NAME="bcan1"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="spi4.0", NAME="bcan3"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="spi3.0", NAME="bcan0"

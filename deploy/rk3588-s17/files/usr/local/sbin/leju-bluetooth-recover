@@ -1,0 +1,32 @@
+#!/bin/sh
+set -eu
+controller_ready() { /usr/bin/timeout 5 /usr/bin/bluetoothctl list | /bin/grep -q '^Controller '; }
+if controller_ready; then
+    echo 'Bluetooth controller already available; no rebind.'
+    exit 0
+fi
+test -s /lib/firmware/rtl8852cu_fw
+test -s /lib/firmware/rtl8852cu_config
+found=0
+for dev in /sys/bus/usb/devices/*; do
+    test -f "$dev/idVendor" || continue
+    test "$(cat "$dev/idVendor")" = 0bda || continue
+    test "$(cat "$dev/idProduct")" = 0852 || continue
+    iface="${dev##*/}:1.0"
+    test "$(readlink -f "$dev:1.0/driver")" = /sys/bus/usb/drivers/rtk_btusb || continue
+    echo "Reinitializing Realtek Bluetooth interface $iface after filesystem availability."
+    printf '%s' "$iface" > /sys/bus/usb/drivers/rtk_btusb/unbind
+    printf '%s' "$iface" > /sys/bus/usb/drivers/rtk_btusb/bind
+    found=1
+    break
+done
+test "$found" = 1
+for attempt in 1 2 3 4 5; do
+    if controller_ready; then
+        /usr/bin/timeout 5 /usr/bin/bluetoothctl power on
+        exit 0
+    fi
+    sleep 1
+done
+echo 'Bluetooth controller did not recover.' >&2
+exit 1

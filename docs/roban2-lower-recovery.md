@@ -21,6 +21,8 @@ export LD_LIBRARY_PATH="$CYCLONEDDS_LIB_DIR:$PWD/installed/lib${LD_LIBRARY_PATH:
 
 ## 2. 核对现场配置和连接
 
+同一台机器人换 RK3588 板卡时，先看 [换板补充文件](../deploy/rk3588-s17/README.md)：包含手柄服务、8765 专用 DDS，以及网口、CAN、串口和蓝牙配置。用新镜像的板卡路径逐项比对后再采用。
+
 - 以新机厂商镜像为起点，核对 `bcan0` 到 `bcan3`、串口设备、IMU 类型、CAN 映射、手柄映射与关节零位。换同一台机器人的主板时，从旧机受控迁移有效的 `~/.config/lejuconfig/`；换机器人时按新设备重新校准。若主控由 root 启动，还要核对 **root 实际读取的配置**。
 - 按新机网卡、CAN 设备和上位机链路核对 udev、CAN 启动服务、`/etc/cyclonedds/` 和 RouDi。旧机现场 DDS 绑定机器人内部链路，不能直接用仓库中的回环测试 XML 替代。使用本地保存的现场配置作比对，不直接整包覆盖系统。确认各机时间及录制时钟偏差满足采集要求。
 - 按 [8877 恢复说明](../platforms/data-workbench/README.md) 检查工作站 SSH 的 `roban-lower`、接收配置中覆盖 SSH 的 `HostName`、`remote_helper` 和 `remote_root`；如果上位机也换了，再改 `upper_preview_host` 及下位机的 `src/leju_launch/config/vr_vision_config.json`。核对新机主机指纹，给新机单独配置授权，保持主机密钥校验。验证上位机 RGB 服务和两条预览路径、工作站空目录的接收权限，以及两台机器的缓存目录归属。

@@ -24,6 +24,8 @@ bash run.sh start
 `run.sh status` 查看地址。Python 锁文件和 `package-lock.json` 均来自原部署。
 `assets/model/` 的身体、双手模型及网格已经包含；虚拟环境、node_modules 和现场记录不入库。
 机器人连接使用本机已有 SSH 密钥及已核验主机密钥，需要在迁移电脑单独配置。
+更换下位机板卡时，按 [换板补充文件](../deploy/rk3588-s17/README.md) 恢复读取器依赖的
+`/home/lab/roban2-gamepad/dds-network.xml`，并核对机器人内网地址。
 其相机启动工具依赖上位机既有 ROS 工作空间与独立相机 launch，具体路径见原项目 README。
 
 ## 仿真与真机推理结果对比平台恢复

@@ -1,0 +1,12 @@
+[Unit]
+Description=Recover Realtek Bluetooth after early firmware load failure
+After=local-fs.target bluetooth.service
+Wants=bluetooth.service
+ConditionPathExists=/lib/firmware/rtl8852cu_fw
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/leju-bluetooth-recover
+TimeoutStartSec=45
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target
