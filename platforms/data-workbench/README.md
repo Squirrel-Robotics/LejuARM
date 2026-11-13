@@ -25,6 +25,8 @@
    ```
 
 4. 修改 `receiver_config.json` 的 `destination`、SSH 主机/地址、下位机 `remote_helper` 和缓存目录。
+   2026-11-11 的预览修复在无新帧时重连。直连上位机使用 `upper_preview_host`，失败后经下位机回退。
+   换下位机时同时核对 SSH 配置和 `ssh_options` 中的 `HostName` 覆盖值，并核验新机指纹。
    当前 `remote_helper` 使用 `/home/lab/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py`，对应本仓库根目录下的同名脚本。
 5. 用自己的 SSH 连接配置和已核验主机密钥连接机器人；私钥单独配置。
 6. 根据实际路径修改两个服务文件的 `WorkingDirectory`、`ExecStart`、PATH 及网页 `--allow-host`。
@@ -32,4 +34,6 @@
 7. 上位机相机脚本依赖原机器上的 ROS Noetic、相机驱动和工作空间，按原服务文件调整路径。
 
 仓库不包含采集会话、处理结果、任务/回收站状态、缓存或现场事件日志。
-本次检查只验证归档完整性与代码语法，未在新电脑上执行机器人控制或恢复部署。
+可在干净检出中用 `python3 -B -m unittest discover -s platforms/data-workbench/tests`
+复核预览重连和 SSH 回退逻辑；测试使用模拟流，不访问现场机器。
+下位机系统依赖和部署路径见 [S17 换机说明](../../docs/roban2-lower-recovery.md)。

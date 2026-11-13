@@ -21,7 +21,11 @@
         "src/leju_launch/scripts/vr_dashboard_probe.py": "18556ad6b73d04a9b63b83e6f26ea0f2ffe33eb34a98e19425dcd7a1ea311335",
         "VERSION": "0d3a1728f84504f32ecd516c539612e205b87e61d79333c6e8db5844a15cce13",
         "installed/lib/libcanbus_sdk.so": "eeb7b5e2a1c84379569cce3767d5bbc36a3941cecf07c837d955291a0fdc1e90",
-        "installed/lib/libmotorevo_controller.so": "a6b4aaed831130173af666e892d981195048b75b639d60f5f2facd59a93ea758"
+        "installed/lib/libmotorevo_controller.so": "a6b4aaed831130173af666e892d981195048b75b639d60f5f2facd59a93ea758",
+        "installed/bin/run_rl_controller": "71381bb0c186da9d3979766cf1d99e8d2ff922c88f2a2a79d8628da80abd3f67",
+        "scripts/head_sdk_pose/head_sdk_pose.py": "4485a82b1ee6015bce97a5235c6f8ee9529b3d5082e60282fd037cb428bd52f0",
+        "scripts/head_sdk_pose/test_head_sdk_pose.py": "49ae9d903fe9c4b266175686a2b56b35beeb714e4b47e4bb91e6e2c55ec61f87",
+        "scripts/head_sdk_pose/使用说明.md": "ab1f173e918c95d8e0512072c47ff5e1b7d14b0d953a38ecf34cbf65095ff009"
       },
       "archive_path": ".",
       "upstream_version": "upstream-commit: 48123354a8b170107dcd38cbce63ae2daf237901\nupstream-describe: 1.5.2-119-g48123354\nbuild-id: 20261105.1272\nbuild-time: 2026-11-05T07:23:25+00:00\n"
@@ -80,10 +84,10 @@
     "archive_path": "platforms/roban2-inference-compare/assets/scene_full_body.xml",
     "purpose": "XML parsed by the comparison viewer for static workcell boxes; external MuJoCo mesh dependencies are not needed by this viewer"
   },
-  "receiver_config_sha256": "a0bd40b28a342c788c692a4f3484607afc8a54fe69af89e7c4f3c6224773144e",
+  "receiver_config_sha256": "32d6795edccb1ba445dd11118dfa8dfc66ce7aa8fff4401a627370c34472e9be",
   "receiver_helper": "/home/lab/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py",
   "configuration_update_date": "2026-11-04",
-  "latest_update_date": "2026-11-05",
+  "latest_update_date": "2026-11-13",
   "code_updates": [
     {
       "date": "2026-11-05",
@@ -106,6 +110,151 @@
       "primary_mode_updates": [
         "src/leju_launch/scripts/vr_communication_probe.py"
       ]
+    },
+    {
+      "date": "2026-11-13",
+      "description": "Archive the current S17 single-publish head controller, workbench preview reconnect, and nine ACT lower-computer versions",
+      "primary_git_head": "764ab7d8a5db7edc50bbb03e0414521bf978ddd9",
+      "primary_content_updates": [
+        "installed/bin/run_rl_controller",
+        "scripts/head_sdk_pose/head_sdk_pose.py",
+        "scripts/head_sdk_pose/test_head_sdk_pose.py",
+        "scripts/head_sdk_pose/使用说明.md"
+      ],
+      "workbench_content_updates": [
+        "platforms/data-workbench/vr_Data/.pipeline/dashboard/vr_dashboard.py",
+        "platforms/data-workbench/vr_Data/.pipeline/dashboard/workbench.py",
+        "platforms/data-workbench/vr_Data/.pipeline/receiver_config.json"
+      ],
+      "act_versions": [
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_return_20261111",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_return_20261111",
+          "runtime_profile": "v75_return_v3",
+          "config_sha256": "aedfa468d2127a285232f5571a415abe9d96dd88196a3960c53901116d73ff3e"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_speed_20261112",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_speed_20261112",
+          "runtime_profile": "v75_speed_v4",
+          "config_sha256": "54a67ba2a2e03a9b890f5586798b9db325ceba92912ae248be8ec336816e670d"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_carry_20261112",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_carry_20261112",
+          "runtime_profile": "v75_carry_v5",
+          "config_sha256": "3e7f29deb2a074f2c2f9054cb90d149c4ff39e0500465f91343defab29dc1d24"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_left_startup_20261112",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112",
+          "runtime_profile": "v75_left_startup_v2",
+          "config_sha256": "446d528f5a3f3524a94df5576d63ae159bfea82d342ed95718821a8dd445e92c"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_right_startup_20261112",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112",
+          "runtime_profile": "v75_right_startup_v6",
+          "config_sha256": "c3259a86efd3a8c73239f2c086abfb1a5495a910d766ecc8c4dc8f5780b5eb72"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_left_bin_transfer_20261112",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112",
+          "runtime_profile": "v75_left_bin_transfer_v3",
+          "config_sha256": "020ea6a209754e58dc039a928f52f645e8ef69e8fc67e65e8d765adfc7acdffc"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_left_speedup_20261113",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113",
+          "runtime_profile": "v75_left_speed_v4",
+          "config_sha256": "f021b4cc4ab698000bbd0e42ac5ae38afe935dfee09f9ebf491b213a9f8c370d"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_right_speedup_20261113",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113",
+          "runtime_profile": "v75_right_speed_v7",
+          "config_sha256": "fec4700d33888b7c1abf8d9ed2e6164b8e1f0fcec92a43b5dfa75f3bc56403e6"
+        },
+        {
+          "source": "/home/lab/roban2_act_integration/heft_v75_left_right_sequence_20261113",
+          "archive_path": "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113",
+          "runtime_profile": "v75_left_sequence_v1",
+          "config_sha256": "0c4d41fd3f4ca804e96dee71572f5b2caa90bc73b4527ac742dcca3f1d0c6263"
+        }
+      ],
+      "file_sha256": {
+        "installed/bin/run_rl_controller": "71381bb0c186da9d3979766cf1d99e8d2ff922c88f2a2a79d8628da80abd3f67",
+        "integrations/act_heft_relay/versions/heft_v75_carry_20261112/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_carry_20261112/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_carry_20261112/config.json": "3e7f29deb2a074f2c2f9054cb90d149c4ff39e0500465f91343defab29dc1d24",
+        "integrations/act_heft_relay/versions/heft_v75_carry_20261112/execution_core.py": "105f3f12a79c9781053ad34d9f370b2289093ab6bcba7a5f9149fd4949830edf",
+        "integrations/act_heft_relay/versions/heft_v75_carry_20261112/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_carry_20261112/robot_relay.py": "281044a36a1c7a6f78f980a59e7544f8ead930472b303aba68de8692c300413f",
+        "integrations/act_heft_relay/versions/heft_v75_carry_20261112/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112/config.json": "020ea6a209754e58dc039a928f52f645e8ef69e8fc67e65e8d765adfc7acdffc",
+        "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112/execution_core.py": "ce680ff90e48bfa0d81232b4a5504d5790997dde1259086d26aa4d216491cb6b",
+        "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112/robot_relay.py": "e0eebe16f4dd1c75c83b4cc9ec46620372bbe7a7a073e2b8ecd3ab365e6c8b8c",
+        "integrations/act_heft_relay/versions/heft_v75_left_bin_transfer_20261112/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/config.json": "0c4d41fd3f4ca804e96dee71572f5b2caa90bc73b4527ac742dcca3f1d0c6263",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/execution_core.py": "b46e7c1fd1cbaa2c64eaeb596a6c036a895f8124e537f9bb8bf491866c1f0ae4",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/robot_relay.py": "1f9e3b187bb3510e9587efa0af8df88b0943419af6c7cad3cd3c4a6c20cb92bd",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/sequence_protocol.py": "eb1454f3c077fa1f4a44f30e46c1ecc422bca571d8adf94ae6f18ce9dfde75d7",
+        "integrations/act_heft_relay/versions/heft_v75_left_right_sequence_20261113/transport_pacing.py": "55ddb2e3fc6e8cd90fc3f48736da325e442093c0e8f6c39635f7f582b90ec683",
+        "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113/config.json": "f021b4cc4ab698000bbd0e42ac5ae38afe935dfee09f9ebf491b213a9f8c370d",
+        "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113/execution_core.py": "ce680ff90e48bfa0d81232b4a5504d5790997dde1259086d26aa4d216491cb6b",
+        "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113/robot_relay.py": "e0eebe16f4dd1c75c83b4cc9ec46620372bbe7a7a073e2b8ecd3ab365e6c8b8c",
+        "integrations/act_heft_relay/versions/heft_v75_left_speedup_20261113/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112/config.json": "446d528f5a3f3524a94df5576d63ae159bfea82d342ed95718821a8dd445e92c",
+        "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112/execution_core.py": "06ecd8423978fc21b0fcd4b3b27502fbf00139dc0e4a00ca6f31d1d911ee4a32",
+        "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112/robot_relay.py": "e0eebe16f4dd1c75c83b4cc9ec46620372bbe7a7a073e2b8ecd3ab365e6c8b8c",
+        "integrations/act_heft_relay/versions/heft_v75_left_startup_20261112/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "integrations/act_heft_relay/versions/heft_v75_return_20261111/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_return_20261111/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_return_20261111/config.json": "aedfa468d2127a285232f5571a415abe9d96dd88196a3960c53901116d73ff3e",
+        "integrations/act_heft_relay/versions/heft_v75_return_20261111/execution_core.py": "105f3f12a79c9781053ad34d9f370b2289093ab6bcba7a5f9149fd4949830edf",
+        "integrations/act_heft_relay/versions/heft_v75_return_20261111/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_return_20261111/robot_relay.py": "281044a36a1c7a6f78f980a59e7544f8ead930472b303aba68de8692c300413f",
+        "integrations/act_heft_relay/versions/heft_v75_return_20261111/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113/config.json": "fec4700d33888b7c1abf8d9ed2e6164b8e1f0fcec92a43b5dfa75f3bc56403e6",
+        "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113/execution_core.py": "105f3f12a79c9781053ad34d9f370b2289093ab6bcba7a5f9149fd4949830edf",
+        "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113/robot_relay.py": "281044a36a1c7a6f78f980a59e7544f8ead930472b303aba68de8692c300413f",
+        "integrations/act_heft_relay/versions/heft_v75_right_speedup_20261113/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112/config.json": "c3259a86efd3a8c73239f2c086abfb1a5495a910d766ecc8c4dc8f5780b5eb72",
+        "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112/execution_core.py": "105f3f12a79c9781053ad34d9f370b2289093ab6bcba7a5f9149fd4949830edf",
+        "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112/robot_relay.py": "281044a36a1c7a6f78f980a59e7544f8ead930472b303aba68de8692c300413f",
+        "integrations/act_heft_relay/versions/heft_v75_right_startup_20261112/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "integrations/act_heft_relay/versions/heft_v75_speed_20261112/can_guards.py": "03c4fab9b7ff1392083880d482861ca6e7af18cc69d6011e0f93c79d36033d91",
+        "integrations/act_heft_relay/versions/heft_v75_speed_20261112/command_ownership.py": "821074bd9f79eb146240cbdd60c750335f9b9fcbfd661fef8f32e111f4ed9611",
+        "integrations/act_heft_relay/versions/heft_v75_speed_20261112/config.json": "54a67ba2a2e03a9b890f5586798b9db325ceba92912ae248be8ec336816e670d",
+        "integrations/act_heft_relay/versions/heft_v75_speed_20261112/execution_core.py": "105f3f12a79c9781053ad34d9f370b2289093ab6bcba7a5f9149fd4949830edf",
+        "integrations/act_heft_relay/versions/heft_v75_speed_20261112/relay.sh": "a339ad454d50af2da2c921c29a285c05807f5c5f77f47248083127ad0b9583c5",
+        "integrations/act_heft_relay/versions/heft_v75_speed_20261112/robot_relay.py": "281044a36a1c7a6f78f980a59e7544f8ead930472b303aba68de8692c300413f",
+        "integrations/act_heft_relay/versions/heft_v75_speed_20261112/transport_pacing.py": "a1ccd2e9c462f3811282c0a72bc4382d2d1ab49f82a877f41d8f32fe1ec50400",
+        "platforms/data-workbench/vr_Data/.pipeline/dashboard/vr_dashboard.py": "9641687ddc0df5c18923cc767f28cd023efbc0c60b5957467978860061bc4029",
+        "platforms/data-workbench/vr_Data/.pipeline/dashboard/workbench.py": "3753cf7abab64f8019d7cd22f6f7e71af9e7d3f12e87359d5c850d839014e4f8",
+        "platforms/data-workbench/vr_Data/.pipeline/receiver_config.json": "32d6795edccb1ba445dd11118dfa8dfc66ce7aa8fff4401a627370c34472e9be",
+        "scripts/head_sdk_pose/head_sdk_pose.py": "4485a82b1ee6015bce97a5235c6f8ee9529b3d5082e60282fd037cb428bd52f0",
+        "scripts/head_sdk_pose/test_head_sdk_pose.py": "49ae9d903fe9c4b266175686a2b56b35beeb714e4b47e4bb91e6e2c55ec61f87",
+        "scripts/head_sdk_pose/使用说明.md": "ab1f173e918c95d8e0512072c47ff5e1b7d14b0d953a38ecf34cbf65095ff009"
+      }
     }
   ],
   "integrations": [

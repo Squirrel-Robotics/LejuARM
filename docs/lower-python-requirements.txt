@@ -1,0 +1,5 @@
+# S17 lower computer, Ubuntu 22.04 ARM64 system Python.
+cyclonedds==0.10.5
+mcap==1.4.0
+PyYAML==6.0.3
+zstandard==0.25.0

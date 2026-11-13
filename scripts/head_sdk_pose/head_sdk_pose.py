@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Roban S17旧SDK头部控制：平滑调整yaw/pitch，省略yaw时保持当前值；默认只读。"""
+"""Roban S17 头部控制。默认只读，执行时默认单发保持目标。"""
 import argparse
 from dataclasses import dataclass
 import fcntl
@@ -10,6 +10,7 @@ from pathlib import Path
 import select
 import subprocess
 import sys
+from threading import Event
 import time
 import xml.etree.ElementTree as ET
 from urllib.parse import unquote, urlparse
@@ -17,6 +18,7 @@ from urllib.parse import unquote, urlparse
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / "reference"))
 RATE = 50
+HEAD_POSE_TOPIC = "/rt/head_pose_once"
 MAX_AGE = .25
 MAX_SPEED = math.radians(8)
 # Match scripts/traj_tracking_common.hpp::specFor(Part::Head).
@@ -161,6 +163,51 @@ class LegacyHeadSdk:
             self.process.stdout.close()
 
 
+class HeadPoseWriter:
+    """One reliable setpoint for the controller's held head pose."""
+
+    def __init__(self, participant):
+        self.participant = participant
+        self.matched = Event()
+        self.writer = None
+
+    def initialize(self):
+        from cyclonedds.core import Listener
+        from cyclonedds.pub import DataWriter
+        from cyclonedds.qos import Policy, Qos
+        from cyclonedds.topic import Topic
+        from cyclonedds.util import duration
+        from dds_leju_types import JointTrajectoryPoint
+
+        def on_match(_writer, status):
+            if status.current_count:
+                self.matched.set()
+            else:
+                self.matched.clear()
+
+        self.writer = DataWriter(
+            self.participant, Topic(self.participant, HEAD_POSE_TOPIC, JointTrajectoryPoint),
+            qos=Qos(Policy.Reliability.Reliable(max_blocking_time=duration(milliseconds=200))),
+            listener=Listener(on_publication_matched=on_match))
+        if not self.matched.wait(2.):
+            raise RuntimeError("HEAD_POSE_SUBSCRIBER_NOT_FOUND: 请确认已启动支持单发保持的控制器")
+
+    def publish(self, q, v):
+        from dds_leju_types import JointTrajectoryPoint
+        if not self.matched.is_set():
+            raise RuntimeError("HEAD_POSE_SUBSCRIBER_LOST")
+        sec, nsec = divmod(time.time_ns(), 1_000_000_000)
+        self.writer.write(JointTrajectoryPoint(sec, nsec, q, v, [0., 0.]))
+
+    def wait_for_ack(self):
+        from cyclonedds.util import duration
+        if not self.writer.wait_for_acks(duration(milliseconds=500)):
+            raise RuntimeError("HEAD_POSE_ACK_TIMEOUT")
+
+    def close(self):
+        self.writer = None
+
+
 def check_pose(q):
     if (len(q) != 2 or not all(math.isfinite(x) for x in q)
             or any(not lo - POSITION_EPS <= value <= hi + POSITION_EPS
@@ -186,7 +233,7 @@ def trajectory(initial, target, elapsed, duration):
             [derivative * (y - x) for x, y in zip(initial, target)])
 
 
-def control(args, feedback, observer, report, save, log, sdk_factory=LegacyHeadSdk, clock=time):
+def control(args, feedback, observer, report, save, log, sdk_factory=None, clock=time):
     initial = feedback.fresh()
     check_pose(initial)
     state = controller_state(observer, clock.monotonic(), require_stable=True)
@@ -197,7 +244,10 @@ def control(args, feedback, observer, report, save, log, sdk_factory=LegacyHeadS
         print("只读采集完成，未初始化运动SDK。", flush=True)
         return
 
-    sdk = sdk_factory()
+    if sdk_factory is None:
+        sdk = HeadPoseWriter(feedback.participant) if args.single_publish else LegacyHeadSdk()
+    else:
+        sdk = sdk_factory()
     try:
         sdk.initialize()
         initial = feedback.fresh()
@@ -206,12 +256,23 @@ def control(args, feedback, observer, report, save, log, sdk_factory=LegacyHeadS
         controller_state(observer, clock.monotonic(), require_stable=True)
         target = [initial[0] if args.yaw_deg is None else math.radians(args.yaw_deg),
                   math.radians(args.pitch_deg)]
-        duration = max(args.duration,
-                       1.5 * max(abs(y - x) for x, y in zip(initial, target)) / MAX_SPEED)
         report.update(initial_head_deg=list(map(math.degrees, initial)),
                       target_yaw_deg=math.degrees(target[0]),
-                      target_head_deg=list(map(math.degrees, target)),
-                      duration_seconds=duration, status="prewarming")
+                      target_head_deg=list(map(math.degrees, target)))
+        if args.single_publish:
+            sdk.publish(target, [0., 0.])
+            report.update(head_frames_sent=1, actual_head_deg=report["initial_head_deg"])
+            log.write(json.dumps({"elapsed": 0., "time": clock.time(),
+                                  "command_deg": report["target_head_deg"],
+                                  "actual_deg": report["actual_head_deg"]}) + "\n")
+            sdk.wait_for_ack()
+            report.update(status="completed", exit_reason="single_publish_completed")
+            print(f"已发送单发保持目标，yaw={math.degrees(target[0]):g}°，pitch={args.pitch_deg:g}°。", flush=True)
+            return
+
+        duration = max(args.duration,
+                       1.5 * max(abs(y - x) for x, y in zip(initial, target)) / MAX_SPEED)
+        report.update(duration_seconds=duration, status="prewarming")
         save()
         last_sent, next_send = None, clock.monotonic()
 
@@ -272,12 +333,13 @@ def control(args, feedback, observer, report, save, log, sdk_factory=LegacyHeadS
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--execute", action="store_true", help="实际发布头部轨迹；不加则只读")
+    parser.add_argument("--execute", action="store_true", help="发布头部目标，默认只发一帧")
     parser.add_argument("--pitch-deg", type=float, default=35, help="下俯为正，范围-20..45°，默认35")
     parser.add_argument("--yaw-deg", type=float, default=None,
                         help="yaw绝对目标角，范围-90..90°；省略时保持启动yaw")
-    parser.add_argument("--duration", type=float, default=7, help="运动时长，默认7秒；自动延长以限制8°/s")
-    parser.add_argument("--hold-seconds", type=float, default=0, help="0=持续保持到Ctrl+C；有限保持至少3秒")
+    parser.add_argument("--duration", type=float, help="启用50 Hz轨迹，指定运动时长；自动延长以限制8°/s")
+    parser.add_argument("--hold-seconds", type=float,
+                        help="启用50 Hz轨迹；0为持续保持到Ctrl+C，有限保持至少3秒")
     parser.add_argument("--output-dir", type=Path, default=HERE / "validation", help="本次反馈和退出记录的父目录")
     args = parser.parse_args(argv)
     if not math.isfinite(args.pitch_deg) or not PITCH_LIMIT_DEG[0] <= args.pitch_deg <= PITCH_LIMIT_DEG[1]:
@@ -285,10 +347,17 @@ def parse_args(argv=None):
     if args.yaw_deg is not None and (not math.isfinite(args.yaw_deg)
                                    or not YAW_LIMIT_DEG[0] <= args.yaw_deg <= YAW_LIMIT_DEG[1]):
         parser.error("yaw-deg必须为-90..90°的有限数值")
-    if not math.isfinite(args.duration) or not 2 <= args.duration <= 120:
+    if args.duration is not None and (not math.isfinite(args.duration) or not 2 <= args.duration <= 120):
         parser.error("duration必须为2..120秒的有限数值")
-    if not math.isfinite(args.hold_seconds) or (args.hold_seconds != 0 and not 3 <= args.hold_seconds <= 86400):
+    if args.hold_seconds is not None and (not math.isfinite(args.hold_seconds)
+                                        or (args.hold_seconds != 0 and not 3 <= args.hold_seconds <= 86400)):
         parser.error("hold-seconds必须为0（无限保持）或3..86400秒")
+    args.single_publish = args.duration is None and args.hold_seconds is None
+    if not args.single_publish:
+        if args.duration is None:
+            args.duration = 7.
+        if args.hold_seconds is None:
+            args.hold_seconds = 0.
     return args
 
 
@@ -297,7 +366,9 @@ def main(argv=None):
     output = args.output_dir / (time.strftime("%Y%m%d_%H%M%S") + f"_{os.getpid()}_{time.time_ns() % 1000000000}")
     output.mkdir(parents=True, exist_ok=False)
     report = dict(status="starting", body_commands_sent=0, head_frames_sent=0,
-                  head_api="RobanVRAPI::publishHeadJointCmd", rate_hz=RATE,
+                  head_api=HEAD_POSE_TOPIC if args.single_publish else "RobanVRAPI::publishHeadJointCmd",
+                  publish_mode="once" if args.single_publish else "stream",
+                  rate_hz=None if args.single_publish else RATE,
                   target_pitch_deg=args.pitch_deg, target_yaw_deg=args.yaw_deg,
                   yaw_mode="hold_initial" if args.yaw_deg is None else "target",
                   hold_seconds=args.hold_seconds,
@@ -350,7 +421,7 @@ def main(argv=None):
         save()
         print(json.dumps(report, ensure_ascii=False), flush=True)
         print("记录：" + str(output), flush=True)
-        if args.execute:
+        if args.execute and not args.single_publish:
             print("头部参考已停止；停发后的姿态由原控制器处理，本次实测会回到原朝向。", flush=True)
     return exit_code
 

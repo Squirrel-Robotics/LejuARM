@@ -69,6 +69,9 @@ class Sdk:
         if self.feedback.follows:
             self.feedback.q = q.copy()
 
+    def wait_for_ack(self):
+        pass
+
     def close(self):
         self.closed = True
 
@@ -93,11 +96,44 @@ class HeadTests(unittest.TestCase):
                                 io.StringIO(), factory or (lambda: sdk), clock)
         return run, clock, feedback, sdk, report
 
-    def test_default_hold_is_unlimited(self):
+    def test_default_is_read_only_and_streaming_requires_explicit_option(self):
         args = head.parse_args([])
         self.assertFalse(args.execute)
-        self.assertEqual(args.hold_seconds, 0)
+        self.assertTrue(args.single_publish)
         self.assertIsNone(args.yaw_deg)
+        for argv in (["--duration", "7"], ["--hold-seconds", "0"]):
+            with self.subTest(argv=argv):
+                args = head.parse_args(["--execute", *argv])
+                self.assertFalse(args.single_publish)
+                self.assertEqual(args.duration, 7)
+                self.assertEqual(args.hold_seconds, 0)
+
+    def test_execute_publishes_one_target_without_warmup_or_hold_frames(self):
+        for yaw_args in (["--yaw-deg", "-7"], []):
+            with self.subTest(yaw_args=yaw_args):
+                run, _, feedback, sdk, report = self.harness(
+                    ["--execute", "--pitch-deg", "18", *yaw_args], follows=False)
+                yaw = math.radians(-7) if yaw_args else feedback.q[0]
+                run()
+                self.assertEqual(sdk.frames, [([yaw, math.radians(18)], [0., 0.])])
+                self.assertEqual(report["head_frames_sent"], 1)
+                self.assertEqual(report["body_commands_sent"], 0)
+                self.assertEqual(report["exit_reason"], "single_publish_completed")
+                self.assertFalse(report["target_verified"])
+                self.assertTrue(sdk.closed)
+
+    def test_execute_rechecks_feedback_and_controller_after_discovery_wait(self):
+        for guard, error in (
+                ({"stale_after": 100.5}, "FEEDBACK_STALE"),
+                ({"fail_after": 100.5}, "CONTROLLER_NOT_READY")):
+            with self.subTest(guard=guard):
+                run, clock, _, sdk, report = self.harness(["--execute"], **guard)
+                sdk.initialize = lambda: clock.sleep(1.)
+                with self.assertRaisesRegex(RuntimeError, error):
+                    run()
+                self.assertEqual(report["head_frames_sent"], 0)
+                self.assertEqual(sdk.frames, [])
+                self.assertTrue(sdk.closed)
 
     def test_reject_invalid_angles_and_durations(self):
         with contextlib.redirect_stderr(io.StringIO()):
@@ -216,7 +252,7 @@ class HeadTests(unittest.TestCase):
 
     def test_yaw_hold_drift_stops_publishing(self):
         run, clock, feedback, sdk, report = self.harness([
-            "--execute", "--yaw-deg", "20", "--pitch-deg", "20"],
+            "--execute", "--yaw-deg", "20", "--pitch-deg", "20", "--hold-seconds", "0"],
             clock=Clock(interrupt_after=30))
         original = sdk.publish
         def drift(q, v):
@@ -241,7 +277,8 @@ class HeadTests(unittest.TestCase):
         self.assertTrue(sdk.closed)
 
     def test_unlimited_hold_still_publishing_after_ninety_seconds(self):
-        run, _, _, sdk, report = self.harness(["--execute"], clock=Clock(interrupt_after=91))
+        run, _, _, sdk, report = self.harness(["--execute", "--hold-seconds", "0"],
+                                               clock=Clock(interrupt_after=91))
         with self.assertRaises(KeyboardInterrupt):
             run()
         self.assertTrue(report["target_verified"])
@@ -333,7 +370,8 @@ class HeadTests(unittest.TestCase):
             sdk.close()
 
     def test_hold_drift_stops_publishing(self):
-        run, clock, feedback, sdk, _ = self.harness(["--execute"], clock=Clock(interrupt_after=30))
+        run, clock, feedback, sdk, _ = self.harness(["--execute", "--hold-seconds", "0"],
+                                                    clock=Clock(interrupt_after=30))
         original = sdk.publish
         def drift(q, v):
             original(q, v)

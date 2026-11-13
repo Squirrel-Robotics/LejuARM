@@ -2,8 +2,11 @@
 from collections import deque, OrderedDict
 import csv
 import json
+import logging
 import math
+import os
 from pathlib import Path
+import select
 import shlex
 import struct
 import subprocess
@@ -38,6 +41,23 @@ def load_json(path, default=None):
 
 
 PREVIEW_MAX_AGE_MS = 700
+PREVIEW_RESPONSE_TIMEOUT_S = 8
+PREVIEW_RECONNECT_S = 5
+LOG = logging.getLogger(__name__)
+
+
+def read_preview_bytes(stream, length, deadline):
+    """Read a packet fragment without waiting indefinitely on a silent SSH relay."""
+    data = bytearray()
+    while len(data) < length:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0 or not select.select([stream], [], [], remaining)[0]:
+            raise TimeoutError('相机预览取帧超时')
+        part = os.read(stream.fileno(), length-len(data))
+        if not part:
+            raise EOFError('相机预览连接已断开')
+        data.extend(part)
+    return bytes(data)
 
 
 def preview_age_ms(header, now_ns):
@@ -95,36 +115,33 @@ class Streams:
             "exec python3 /home/leju_kuavo/vr_vision_recorder/"+script+" --pull'")
         command = ("ssh -T -o BatchMode=yes -o ConnectTimeout=4 -o ServerAliveInterval=5 "
             "leju_kuavo@192.168.26.12 " + shlex.quote(upper_command))
-        direct_options = ['-T', '-o', 'HostName=roban-upper.local', '-o', 'ProxyJump=none',
+        upper_host = self.config.get('upper_preview_host', 'roban-upper.local')
+        direct_options = ['-T', '-o', 'HostName='+upper_host, '-o', 'ProxyJump=none',
             '-o', 'HostKeyAlias=192.168.26.12', '-o', 'StrictHostKeyChecking=yes',
             '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=4', '-o', 'ServerAliveInterval=5',
             '-o', 'ServerAliveCountMax=3']
         direct = True
-        def read_exact(stream, n):
-            out = bytearray()
-            while len(out)<n:
-                part = stream.read(n-len(out))
-                if not part:
-                    raise EOFError()
-                out.extend(part)
-            return bytes(out)
         while not self.stopping.is_set():
             p = self.process(upper_command, input_pipe=True, host='roban-upper', options=direct_options) if direct else self.process(command, input_pipe=True)
+            connected_at, last_fresh = time.monotonic(), None
             try:
                 while not self.stopping.is_set():
                     # One request in flight: SSH/TCP cannot accumulate seconds of frames.
                     request_ns = time.monotonic_ns()
                     p.stdin.write((str(request_ns)+'\n').encode())
                     p.stdin.flush()
-                    size = struct.unpack('!I', read_exact(p.stdout,4))[0]
+                    deadline = time.monotonic() + PREVIEW_RESPONSE_TIMEOUT_S
+                    if last_fresh is not None:
+                        deadline = min(deadline, last_fresh + PREVIEW_RECONNECT_S)
+                    size = struct.unpack('!I', read_preview_bytes(p.stdout, 4, deadline))[0]
                     if not 0<size<16384:
                         raise ValueError('Invalid preview packet')
-                    header = json.loads(read_exact(p.stdout,size))
+                    header = json.loads(read_preview_bytes(p.stdout, size, deadline))
                     if depth:
                         validate_depth_header(header)
                     if not 0<=header['size']<=4*1024*1024:
                         raise ValueError('Oversized preview frame')
-                    frame = read_exact(p.stdout,header['size'])
+                    frame = read_preview_bytes(p.stdout, header['size'], deadline)
                     now = time.time_ns()
                     if header.get('request_id') != str(request_ns):
                         raise ValueError('Unexpected preview response')
@@ -137,8 +154,10 @@ class Streams:
                     # Upper bound uses a local monotonic RTT plus age on the upper
                     # computer, so it does not assume that the two clocks agree.
                     header['latency_bound_ms'] = max(0, source_age or 0) + elapsed_ms
-                    header['fresh'] = bool(header.get('fresh') and
-                        (not frame or source_age >= -50) and header['latency_bound_ms'] < PREVIEW_MAX_AGE_MS)
+                    header['fresh'] = bool(frame and header.get('fresh') and
+                        source_age >= -50 and header['latency_bound_ms'] < PREVIEW_MAX_AGE_MS)
+                    if header['fresh']:
+                        last_fresh = time.monotonic()
                     with self.condition:
                         header['received_ns'] = now
                         received = self.depth_received if depth else self.received
@@ -159,8 +178,11 @@ class Streams:
                         else:
                             self.preview = header
                         self.condition.notify_all()
-            except (EOFError, OSError, ValueError):
-                pass
+                    if not header['fresh'] and time.monotonic()-(last_fresh or connected_at) >= PREVIEW_RECONNECT_S:
+                        raise TimeoutError('连续未收到新鲜相机帧，重新订阅')
+            except (EOFError, OSError, ValueError) as exc:
+                LOG.debug('%s preview reconnect (%s): %s', 'Depth' if depth else 'RGB',
+                          'direct' if direct else 'via_lower', exc)
             finally:
                 try:
                     p.stdin.close()

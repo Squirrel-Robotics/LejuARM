@@ -20,5 +20,6 @@
   ],
   "remote_helper": "/home/lab/Lejulab_ARM/src/leju_launch/scripts/vr_raw_transfer.py",
   "remote_root": "/home/lab/.cache/lejulab/vr_transfer",
+  "upper_preview_host": "192.168.110.85",
   "poll_seconds": 5
 }

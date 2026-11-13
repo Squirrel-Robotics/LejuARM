@@ -10,12 +10,15 @@
 2026-11-05 后续更新：基础通信库同步到上游 build `20261105.1272`，并加入
 [ACT / HEFT 下位机中继组件](integrations/act_heft_relay/README.md)。
 
+2026-11-13 更新：同步头部单发工具及配套 ARM 主控、8877 相机预览重连修复，以及九套 ACT 下位机版本（含左右手顺序版）。
+更换下位机时，先看 [S17 恢复与预检](docs/roban2-lower-recovery.md)。
+
 ## 目录与实际部署
 
 | 仓库路径 | 来源 / 用途 |
 | --- | --- |
 | 根目录 `src/`、`installed/`、`config/`、`scripts/` 等 | 下位机 `/home/lab/Lejulab_ARM` 主目录 |
-| `integrations/act_heft_relay/` | 下位机当前 v75 ACT / HEFT 中继、执行、保护和部署配置 |
+| `integrations/act_heft_relay/` | v75 基线与九套新增 ACT / HEFT 中继版本及原始配置 |
 | `platforms/data-workbench/vr_Data/.pipeline/` | 本机 8877 数采、处理、增强平台的当前代码、模型、依赖和接收配置 |
 | `platforms/roban2-visual-console/` | 同事电脑 8765 状态监测平台，含后端、前端、模型和依赖锁文件 |
 | `platforms/roban2-inference-compare/` | 同事电脑 8766 对比平台，含后端、前端、启动脚本和场景 XML |

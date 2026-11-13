@@ -167,7 +167,8 @@ def build_model(lower, lower_ok, observed_ns, camera, local, storage, sessions, 
     ref_ok = heartbeat_ok and recent('last_reference_ns', .25) and telemetry.get('reference_valid')
     feedback = feedback if feedback is not None else telemetry.get('feedback', {})
     feedback_ok = bool(feedback.get('ready') and feedback.get('fresh'))
-    camera_ok = bool(camera.get('active') and now-camera.get('observed_ns', 0) < 20_000_000_000)
+    camera_active = bool(camera.get('active') and now-camera.get('observed_ns', 0) < 20_000_000_000)
+    camera_ok = camera_active and camera.get('preview_fresh', True)
     processes = source.get('processes', {})
     pico_ok = bool(fresh and processes.get('pico'))
     hardware_ok = bool(fresh and processes.get('hardware') and processes.get('controller'))
@@ -197,7 +198,9 @@ def build_model(lower, lower_ok, observed_ns, camera, local, storage, sessions, 
         {'id': 'feedback', 'title': '23个关节反馈检查', 'state': 'good' if feedback_ok else 'warn',
          'detail': feedback.get('reason') or '等待硬件关节反馈，检查通过后再启动主控/摇操'},
         {'id': 'camera', 'title': '上位机RGB相机', 'state': 'good' if camera_ok else 'warn' if camera.get('ok') else 'unknown',
-         'detail': '相机服务运行中 · 目标60 FPS' if camera_ok else camera.get('error') or '相机服务尚未运行'},
+         'detail': ('相机服务运行中 · 目标60 FPS' if camera_ok else
+                    '相机服务运行中 · 预览正在重新连接' if camera_active else
+                    camera.get('error') or '相机服务尚未运行')},
     ]
     merged = {s['recording_id']: dict(s) for s in sessions}
     for p in cache:
@@ -377,7 +380,7 @@ class Monitor:
                     previous = self.state
                     preview, feedback = self.streams.snapshot()
                     camera = dict(self.camera)
-                    camera['active'] = bool(camera.get('active') and preview.get('fresh'))
+                    camera['preview_fresh'] = bool(preview.get('fresh'))
                     self.state = build_model(self.lower, self.lower_ok, self.observed_ns, camera,
                                              service, storage, sessions, feedback=feedback)
                     self.cache_deletions.apply(self.state)

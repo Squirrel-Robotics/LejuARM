@@ -1,0 +1,294 @@
+{
+  "schema": "roban_ACT_right_startup_clearance_20261112",
+  "selected_controller": "heft_pico",
+  "created_at": "2026-11-13T13:55:14.316482+08:00",
+  "body_dof": 21,
+  "body_names": [
+    "waist_yaw_joint",
+    "leg_l1_joint",
+    "leg_l2_joint",
+    "leg_l3_joint",
+    "leg_l4_joint",
+    "leg_l5_joint",
+    "leg_l6_joint",
+    "leg_r1_joint",
+    "leg_r2_joint",
+    "leg_r3_joint",
+    "leg_r4_joint",
+    "leg_r5_joint",
+    "leg_r6_joint",
+    "zarm_l1_joint",
+    "zarm_l2_joint",
+    "zarm_l3_joint",
+    "zarm_l4_joint",
+    "zarm_r1_joint",
+    "zarm_r2_joint",
+    "zarm_r3_joint",
+    "zarm_r4_joint"
+  ],
+  "body_input_units": "rad",
+  "body_input_coordinates": "hardware",
+  "waist_conversion_owner": "native_bridge_only",
+  "native_topic": "/rt/pico/heft_reference",
+  "native_input": "existing_bridge_loopback_UDP_with_timestamp_and_sequence",
+  "native_root": "/home/lab/Lejulab_ARM",
+  "native_source_sha256": {
+    "/home/lab/Lejulab_ARM/src/leju_launch/scripts/dds_heft_external_control.py": "6d32e72b08dc8f5a14a2a2bcf55556333e51531c8b42fd10aed8c590301140d7",
+    "/home/lab/Lejulab_ARM/src/leju_assets/models/biped_s17/urdf/biped_s17.urdf": "7cb1820cd6a8717b01a353e05501f22225d7ddc097fa9501116ad54ebad2d3a4",
+    "/home/lab/Lejulab_ARM/src/leju-hardware/config/roban_v17/kuavo.json": "89afcefecbd56297e53413ad00d2e13c199a0aa82d28d53e10fe36d0c68f027f",
+    "/home/lab/Lejulab_ARM/src/leju-controllers/leju-rl-controller/config/17/controllers/config_heft.yaml": "cb1f26e5f082cbb8fffb543ed82b5077077a80658ce1a05294ee5839c9eb3d4f"
+  },
+  "ssh_target": "lab@192.168.110.84",
+  "ssh_host_key_alias": "roban-lower.local",
+  "udp_port": 28721,
+  "rate_hz": 50.0,
+  "joint_limits_rad": {
+    "leg_l1_joint": [
+      -3.228,
+      2.44346
+    ],
+    "leg_l2_joint": [
+      -0.837758,
+      2.40855
+    ],
+    "leg_l3_joint": [
+      -1.7453,
+      1.7453
+    ],
+    "leg_l4_joint": [
+      -0.08726646,
+      2.530727
+    ],
+    "leg_l5_joint": [
+      -0.872664625997165,
+      0.523598775598299
+    ],
+    "leg_l6_joint": [
+      -0.261799387799149,
+      0.261799387799149
+    ],
+    "leg_r1_joint": [
+      -2.44346,
+      3.228
+    ],
+    "leg_r2_joint": [
+      -2.40855,
+      0.837758
+    ],
+    "leg_r3_joint": [
+      -1.7453,
+      1.7453
+    ],
+    "leg_r4_joint": [
+      -0.08726646,
+      2.530727
+    ],
+    "leg_r5_joint": [
+      -0.872664625997165,
+      0.523598775598299
+    ],
+    "leg_r6_joint": [
+      -0.261799387799149,
+      0.261799387799149
+    ],
+    "waist_yaw_joint": [
+      -2.61799387799149,
+      2.61799387799149
+    ],
+    "zarm_l1_joint": [
+      -3.14159265358979,
+      2.0943951023931953
+    ],
+    "zarm_l2_joint": [
+      -0.52,
+      3.141592653589793
+    ],
+    "zarm_l3_joint": [
+      -1.5707963267948966,
+      1.5707963267948966
+    ],
+    "zarm_l4_joint": [
+      -2.2689280275926285,
+      0.08726
+    ],
+    "zarm_r1_joint": [
+      -3.14159265358979,
+      2.0943951023931953
+    ],
+    "zarm_r2_joint": [
+      -3.3161,
+      0.52
+    ],
+    "zarm_r3_joint": [
+      -1.5707963267948966,
+      1.5707963267948966
+    ],
+    "zarm_r4_joint": [
+      -2.2689280275926285,
+      0.08726
+    ],
+    "zhead_1_joint": [
+      -1.0471975511965976,
+      1.0471975511965976
+    ],
+    "zhead_2_joint": [
+      -0.349065850398866,
+      0.785398163397448
+    ]
+  },
+  "initial_reference": "model_measured_start_actuation_preserves_existing_inactive_reference",
+  "head_in_body21": false,
+  "hands_in_body21": false,
+  "independent_hand_order": [
+    "Thumb",
+    "ThumbAux",
+    "Index",
+    "Middle",
+    "Ring",
+    "Pinky"
+  ],
+  "preserve_inactive_measured_hand": true,
+  "rgb_age_limit_ms": null,
+  "joint_and_hand_age_limit_ms": 1000,
+  "command_packet_age_limit_ms": 5000.0,
+  "relay_ack_timeout_s": 5.0,
+  "relay_input_timeout_s": 5.25,
+  "checkpoint_sha256": "eab11bac439c916356be2ff3eff82f80b85c99d1be6882b09ab54c906cff33d6",
+  "frozen_model_runtime": "session_model.py",
+  "buffered_capture_entry": "/media/lsj/EXTERNAL_USB/savedata/roban2-mujoco-sorting/outputs/bag_act40_20261027_v4/real_right_grasp_20261029_154814_v68/capture_and_infer_readonly_buffered.py",
+  "entrypoint": "/media/lsj/EXTERNAL_USB/Roban-Ubuntu/启动右手ACT完整推理_v75抓取加速版_v7.sh",
+  "hardware_write_enabled": false,
+  "continuous_physical_executor_implemented": true,
+  "mode_switch_by_this_package": false,
+  "arm_speed_deg_s": 60.0,
+  "waist_speed_deg_s": 60.0,
+  "arm_speed_authority": "2026-11-03 user explicitly requested rollback to 60 deg/s after run 20261103_140035_404398",
+  "waist_speed_authority": "Same 2026-11-03 rollback: finite 60 deg/s cap applied to waist and right arm",
+  "speed_hardware_independently_measured": false,
+  "hand_ramp_s": 1.0,
+  "hand_settle_samples": 3,
+  "hand_body_tolerance_deg": 8.0,
+  "tracking_abort_deg": 12.0,
+  "hand_boundary_timeout_s": 5.0,
+  "maximum_wall_s": 600.0,
+  "frozen_runtime_directory": "model",
+  "console_url": null,
+  "remote_directory": "/home/lab/roban2_act_integration/heft_v75_right_speedup_20261113",
+  "hardware_write_enabled_by_default": false,
+  "physical_execution_qualified": false,
+  "incident_lock_path": "/media/lsj/EXTERNAL_USB/Roban-Ubuntu/projects/桌面/roban2-mujoco-sorting/config/real_motion_incident_lock.json",
+  "body_preview_limit_deg": null,
+  "policy_seconds": 40.0,
+  "return_home_tolerance_deg": 3.0,
+  "use_browser": false,
+  "camera": {
+    "listen": "0.0.0.0",
+    "port": 8765,
+    "lower_host": "lab@192.168.110.84",
+    "upper_host": "leju_kuavo@192.168.26.12",
+    "upper_host_key_alias": "roban-upper.local",
+    "upper_via_lower": true,
+    "ros_setup": "/opt/ros/noetic/setup.bash",
+    "camera_workspace": "/home/leju_kuavo/ros_ws/devel/setup.bash",
+    "color_topic": "/roban2_stage0_camera/color/image_raw",
+    "depth_topic": "/roban2_stage0_camera/depth/image_raw",
+    "camera_info_topic": "/roban2_stage0_camera/color/camera_info",
+    "camera_fps": 15,
+    "jpeg_quality": 78,
+    "joint_hz": 50,
+    "joint_stale_ms": 1000,
+    "camera_stale_ms": 1500,
+    "record_limit_mb": 200,
+    "record_limit_seconds": 1800,
+    "lower_host_key_alias": "roban-lower.local"
+  },
+  "body_feedback_monitor_only_joints": [
+    "zarm_r3_joint"
+  ],
+  "body_feedback_monitor_only_authority": "2026-11-05 user requested old and new ACT inference to continue despite right R3 tracking error above 12 degrees; retain measured errors and command range/rate limits.",
+  "runtime_profile": "v75_right_speed_v7",
+  "v75_motion_repair": {
+    "schema": "v75_right_speed_v7",
+    "switch_frame": 1190,
+    "sample_hz": 50,
+    "planned_speed_deg_s": 37.5,
+    "planned_acceleration_deg_s2": 93.75,
+    "planned_jerk_deg_s3": 585.9375,
+    "release_open_fraction": 0.05,
+    "grasp_closed_fraction": 0.8,
+    "maximum_segment_seconds": 20.0,
+    "monotone_shape_anchors": 4,
+    "lift_earliest_frame": 690,
+    "lift_closed_fraction": 0.95,
+    "lift_height_increment_m": 0.001,
+    "lift_speed_deg_s": 25.0,
+    "lift_acceleration_deg_s2": 62.5,
+    "lift_jerk_deg_s3": 390.625,
+    "lift_optimizer": "bounded_same_direction_merge_v1",
+    "lift_merge_max_deviation_deg": 0.25,
+    "lift_empty_hold_samples": 1,
+    "carry_optimizer": "coordinated_level_then_place_v1",
+    "carry_spline_knots": 65,
+    "carry_height_tolerance_m": 0.0005,
+    "carry_geometry_step_deg": 0.25,
+    "carry_max_geometry_samples": 4097,
+    "carry_terminal_xy_offset_limit_m": 0.05,
+    "carry_timing_bound_factor": 1.01,
+    "carry_minimum_chunk_seconds": 0.4,
+    "startup_clearance": {
+      "side": "right",
+      "motion_schema": "v75_right_speed_v7",
+      "outward_raise_deg": 20.0,
+      "minimum_added_endpoint_height_m": 0.06,
+      "nominal_obstacle_margin_m": 0.03,
+      "geometry_step_deg": 0.125,
+      "sample_hz": 50,
+      "planned_speed_deg_s": 60.0,
+      "planned_acceleration_deg_s2": 120.0,
+      "planned_jerk_deg_s3": 600.0,
+      "maximum_segment_seconds": 20.0
+    },
+    "timing_repair": "bounded_procedural_125_percent_v1",
+    "timing_factor": 1.25
+  },
+  "v75_return_repair": {
+    "schema": "v75_post_release_return_speed_v4",
+    "earliest_release_frame": 1340,
+    "last_release_frame": 1690,
+    "release_intent_fraction": 0.25,
+    "release_intent_samples": 10,
+    "lift_increment_m": 0.05,
+    "maximum_lift_r1_change_deg": 60.0,
+    "minimum_lift_r1_deg": -90.0,
+    "planned_speed_deg_s": 31.25,
+    "planned_acceleration_deg_s2": 62.5,
+    "planned_jerk_deg_s3": 390.625,
+    "maximum_segment_seconds": 20.0,
+    "sample_hz": 50,
+    "geometry_step_deg": 0.25,
+    "nominal_obstacle_margin_m": 0.02,
+    "hand_open_tolerance_sdk": 5.0,
+    "independent_samples": 3,
+    "feedback_hold_seconds": 0.15,
+    "feedback_timeout_seconds": 5.0
+  },
+  "runs_directory": "/media/lsj/EXTERNAL_USB/savedata/roban2-mujoco-sorting/outputs/bag_act40_20261027_v4/heft_full_inference_20261030_v75/runs",
+  "source_package": "/media/lsj/EXTERNAL_USB/Roban-Ubuntu/projects/roban2-v75-speedup-20261113/baseline/right",
+  "runtime_repair_physical_validation": false,
+  "transport_pipeline_window": 4,
+  "transport_pacing_protocol": "bounded_fifo_50hz_v1",
+  "body_tracking_abort_enabled": false,
+  "speed_repair_scope": [
+    "subsequent_lift_1_25x",
+    "carry_1_25x",
+    "return_1_25x",
+    "preserve_startup_approach_first_lift_hand_ramps_and_all_guards"
+  ],
+  "carry_repair_scope": [
+    "coordinated_constant_palm_height_transfer",
+    "hold_full_grip_until_placement",
+    "monotone_lower_at_existing_release_endpoint"
+  ],
+  "inference_side": "right",
+  "runtime_revision": "v75_right_speed_v7_20261113"
+}
